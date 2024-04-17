@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct CategoryModel: Hashable,Identifiable{
+    var id: UUID = .init()
+    var icon:String
+    var title:String
+}
+
+var categoryList:[CategoryModel] = []

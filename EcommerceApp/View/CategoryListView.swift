@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct CategoryListView: View {
+    @State var selectedCategory = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(.horizontal,showsIndicators: false){
+            Text("hello")
+            Spacer()
+        }.padding()
     }
 }
 
