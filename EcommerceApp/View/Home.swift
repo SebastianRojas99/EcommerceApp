@@ -21,7 +21,7 @@ struct Home: View {
                 HStack{
                     
                     Text("Shop your favorite **Sneakers**")
-                        .font(.system(size: 30))
+                        .font(.system(size: 32))
                         .padding(.trailing)
                     Spacer()
                     Image(systemName: "line.3.horizontal")
@@ -30,6 +30,7 @@ struct Home: View {
                         .padding()
                         .frame(width: 70,height: 90)
                         .overlay(RoundedRectangle(cornerRadius: 200).stroke(.green,lineWidth: 270).opacity(0.4))
+                        
                     
                 }.padding(12)
                 //Categories
@@ -88,7 +89,7 @@ struct Home: View {
                                 Text("**\(item.name)**").padding(.top,5)
                                 Spacer()
                                 HStack{
-                                Text("$\(item.price)").padding()
+                                Text("$"+"\(item.price)").padding()
                                 Spacer()
                                     Button{
                                        //
@@ -98,10 +99,13 @@ struct Home: View {
                                 
                                 }.padding()
                                 
-                            }.font(.system(size: 25))
+                            }.font(.system(size: 30))
                                 .padding(.horizontal,12)
-                                .frame(width: 250,height: 250)
+                                .frame(width: 336,height: 422)
                                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(.green,lineWidth: 1).opacity(0.4))
+                                .background(.green.opacity(0.4))
+                                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                                
                         }
                     }
             }
