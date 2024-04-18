@@ -37,9 +37,10 @@ struct Home: View {
                 //Collection
                 
                 HStack{
-                    Text("**Running** shoes").font(.system(size: 24))
-                    Spacer()
-                    Image(systemName: "arrow.right").imageScale(.large)
+                    
+                        Text("**\(selectedCategory)** shoes").font(.system(size: 24))
+                        Spacer()
+                        Image(systemName: "arrow.right").imageScale(.large)
                     //Text("**Football** shoes").font(.system(size: 24))
                     //Text("**Basketball** shoes").font(.system(size: 24))
                 }.padding(.horizontal,12)
