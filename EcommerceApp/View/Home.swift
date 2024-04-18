@@ -10,6 +10,7 @@ import SwiftUI
 struct Home: View {
     
     @State var selectedCategory = ""
+    @State var selectedProduct = ""
     
     var body: some View {
         
@@ -29,7 +30,7 @@ struct Home: View {
                         .padding()
                         .frame(width: 70,height: 90)
                         .overlay(RoundedRectangle(cornerRadius: 200).stroke(.green,lineWidth: 270).opacity(0.4))
-                        
+                    
                 }.padding(12)
                 //Categories
                 CategoryListView
@@ -38,13 +39,14 @@ struct Home: View {
                 
                 HStack{
                     
-                        Text("**\(selectedCategory)** shoes").font(.system(size: 24))
-                        Spacer()
-                        Image(systemName: "arrow.right").imageScale(.large)
-                    //Text("**Football** shoes").font(.system(size: 24))
-                    //Text("**Basketball** shoes").font(.system(size: 24))
+                    Text("**\(selectedCategory)** shoes").font(.system(size: 24))
+                    Spacer()
+                    Image(systemName: "arrow.right").imageScale(.large)
                 }.padding(.horizontal,12)
                     .padding(.vertical,6)
+                
+                //Product
+                ProductListView
                 
                 
             }
@@ -52,31 +54,49 @@ struct Home: View {
         
     }
     var CategoryListView: some View {
-         
         HStack{
-                ScrollView(.horizontal,showsIndicators: false){
-                    HStack{
-                        ForEach(categoryList,id: \.self){ item in
-                            Button{
-                                selectedCategory = item.title
-                            }label: {
-                                HStack{
-                                    if item.title !=  "All"{
-                                        Image(systemName: item.icon).foregroundStyle(selectedCategory == item.title ? .brown : .black)
-                                    }
-                                    Text(item.title)
+            ScrollView(.horizontal,showsIndicators: false){
+                HStack{
+                    ForEach(categoryList,id: \.self){ item in
+                        Button{
+                            selectedCategory = item.title
+                        }label: {
+                            HStack{
+                                if item.title !=  "All"{
+                                    Image(systemName: item.icon).foregroundStyle(selectedCategory == item.title ? .brown : .black)
                                 }
+                                Text(item.title)
                             }
-                            .padding()
-                            .background(selectedCategory == item.title ? .green.opacity(0.3) : .gray.opacity(0.2))
-                            .foregroundStyle(.black)
-                            .clipShape(.capsule)
                         }
+                        .padding()
+                        .background(selectedCategory == item.title ? .green.opacity(0.3) : .gray.opacity(0.2))
+                        .foregroundStyle(.black)
+                        .clipShape(.capsule)
                     }
                 }
+            }
         }.padding(.horizontal,12)
+    }
+    
+    var ProductListView:some View{
+        ScrollView{
+            HStack{
+                VStack{
+                    ForEach(productList){ item in
+                        if item.category.title == selectedCategory || selectedCategory == "All" {
+                            Text(item.name)
+                            Text(item.description)
+                            Text(item.price)
+                        }
+                    }.font(.system(size: 25))
+                        .padding(.bottom,30)
+                        .frame(width: 250,height: 250)
+                        .overlay(RoundedRectangle(cornerRadius: 200).stroke(.green,lineWidth: 270).opacity(0.4))
+                }
+            }
         }
-
+    }
+    
 }
 
 

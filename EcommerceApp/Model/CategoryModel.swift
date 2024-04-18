@@ -18,4 +18,5 @@ var categoryList:[CategoryModel] = [
     CategoryModel(icon: "figure.run", title: "Running"),
     CategoryModel(icon: "soccerball", title: "Football"),
     CategoryModel(icon: "basketball", title: "Basketball"),
+    CategoryModel(icon: "figure", title: "StreetWear"),
 ]
