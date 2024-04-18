@@ -7,10 +7,15 @@
 
 import Foundation
 
-struct CategoryModel: Hashable,Identifiable{
+struct CategoryModel:Identifiable, Hashable{
     var id: UUID = .init()
     var icon:String
     var title:String
 }
 
-var categoryList:[CategoryModel] = []
+var categoryList:[CategoryModel] = [
+    CategoryModel(icon: "", title: "All"),
+    CategoryModel(icon: "figure.run", title: "Running"),
+    CategoryModel(icon: "soccerball", title: "Football"),
+    CategoryModel(icon: "basketball", title: "Basketball"),
+]
