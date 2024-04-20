@@ -12,8 +12,7 @@ struct CategoryListView:View{
     @State var viewModel = CategoryViewModel(categoryList: categoryList)
     @Binding var selectedCategory: String
     
-    //MARK: DEBUG THAT!!
-    //----------------------------------------------
+    
    var body : some View {
        HStack{
            
@@ -40,20 +39,4 @@ struct CategoryListView:View{
        }.padding(.horizontal,12)
    }
 }
-
-
-
-/*
-@State private var viewModel = CategoryViewModel(categoryList: categoryList) // Inject initial data
-
-var body: some View {
-    List {
-        ForEach(viewModel.categoryList) { category in
-            Text(category.title)
-        }
-    }
-}
-}
-*/
-
 

@@ -47,23 +47,13 @@ struct Home: View {
                     Image(systemName: "arrow.right").imageScale(.large)
                 }.padding(.horizontal,12)
                     .padding(.vertical,6)
-                
                 //Product
                 ProductListView(selectedCategory: $selectedCategory)
-                
-                
             }
         }//vistas
         
     }
-    
-    
-    
-    
 }
-
-
-
 #Preview {
     Home()
 }
