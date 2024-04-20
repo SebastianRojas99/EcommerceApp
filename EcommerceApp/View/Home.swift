@@ -49,7 +49,7 @@ struct Home: View {
                     .padding(.vertical,6)
                 
                 //Product
-                ProductListView()
+                ProductListView(selectedCategory: $selectedCategory)
                 
                 
             }

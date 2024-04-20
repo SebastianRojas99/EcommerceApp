@@ -9,7 +9,7 @@ import SwiftUI
 
     struct ProductListView: View {
         @State  var viewModel = ProductViewModel(productList: productList)
-        @State var selectedCategory = ""
+        @Binding var selectedCategory:String
         var body:some View{
             ScrollView(.horizontal,showsIndicators: false){
                 ZStack{
@@ -78,6 +78,3 @@ import SwiftUI
 
 
 
-#Preview {
-    ProductListView()
-}
