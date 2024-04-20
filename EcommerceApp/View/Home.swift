@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct Home: View {
+    @State private var categoryViewModel = CategoryViewModel(categoryList: categoryList)
+        @State private var productViewModel = ProductViewModel(productList: productList)
     
-    @State var selectedCategory = ""
-     var selectedProduct = ""
-    
+    @State private var selectedCategory = ""
+
+        
     var body: some View {
         
         ScrollView{
@@ -34,7 +36,7 @@ struct Home: View {
                     
                 }.padding(12)
                 //Categories
-                CategoryListView()
+                CategoryListView(selectedCategory:$selectedCategory)
                 
                 //Collection
                 

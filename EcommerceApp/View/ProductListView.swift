@@ -8,7 +8,7 @@
 import SwiftUI
 
     struct ProductListView: View {
-        @State private var viewModel = ProductViewModel(productList: productList)
+        @State  var viewModel = ProductViewModel(productList: productList)
         @State var selectedCategory = ""
         var body:some View{
             ScrollView(.horizontal,showsIndicators: false){

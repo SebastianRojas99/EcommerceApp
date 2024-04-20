@@ -13,9 +13,10 @@ import Observation
 class CategoryViewModel{
     
     var categoryList:[CategoryModel]
-    
-    init(categoryList: [CategoryModel]) {
+    var selectedCategory:String
+    init(categoryList: [CategoryModel],selectedCategory:String = "") {
         self.categoryList = categoryList
+        self.selectedCategory = selectedCategory
     }
 
 }

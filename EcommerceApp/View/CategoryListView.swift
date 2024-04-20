@@ -9,12 +9,14 @@ import SwiftUI
 
 struct CategoryListView:View{
     
-    @State private var viewModel = CategoryViewModel(categoryList: categoryList)
+    @State var viewModel = CategoryViewModel(categoryList: categoryList)
+    @Binding var selectedCategory: String
+    
     //MARK: DEBUG THAT!!
-    @State private var selectedCategory:String = ""
     //----------------------------------------------
    var body : some View {
        HStack{
+           
            ScrollView(.horizontal,showsIndicators: false){
                HStack{
                    ForEach(viewModel.categoryList,id: \.self){ item in
@@ -40,6 +42,7 @@ struct CategoryListView:View{
 }
 
 
+
 /*
 @State private var viewModel = CategoryViewModel(categoryList: categoryList) // Inject initial data
 
@@ -52,3 +55,5 @@ var body: some View {
 }
 }
 */
+
+
