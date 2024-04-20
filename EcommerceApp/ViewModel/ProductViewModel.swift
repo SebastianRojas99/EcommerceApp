@@ -7,3 +7,16 @@
 
 import Foundation
 import SwiftUI
+import Observation
+
+@Observable
+
+class ProductViewModel{
+    
+    var productList:[ProductModel]
+    
+    init(productList: [ProductModel]) {
+        self.productList = productList
+    }
+    
+}

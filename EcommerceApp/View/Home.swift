@@ -10,7 +10,7 @@ import SwiftUI
 struct Home: View {
     
     @State var selectedCategory = ""
-    @State var selectedProduct = ""
+     var selectedProduct = ""
     
     var body: some View {
         
@@ -34,7 +34,7 @@ struct Home: View {
                     
                 }.padding(12)
                 //Categories
-                CategoryListView
+                CategoryListView()
                 
                 //Collection
                 
@@ -54,30 +54,7 @@ struct Home: View {
         }//vistas
         
     }
-    var CategoryListView: some View {
-        HStack{
-            ScrollView(.horizontal,showsIndicators: false){
-                HStack{
-                    ForEach(categoryList,id: \.self){ item in
-                        Button{
-                            selectedCategory = item.title
-                        }label: {
-                            HStack{
-                                if item.title !=  "All"{
-                                    Image(systemName: item.icon).foregroundStyle(selectedCategory == item.title ? .brown : .black)
-                                }
-                                Text(item.title)
-                            }
-                        }
-                        .padding()
-                        .background(selectedCategory == item.title ? .green.opacity(0.3) : .gray.opacity(0.2))
-                        .foregroundStyle(.black)
-                        .clipShape(.capsule)
-                    }
-                }
-            }
-        }.padding(.horizontal,12)
-    }
+    
     
     var ProductListView:some View{
         ScrollView(.horizontal,showsIndicators: false){
