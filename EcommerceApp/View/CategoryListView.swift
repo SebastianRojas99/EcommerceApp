@@ -10,8 +10,9 @@ import SwiftUI
 struct CategoryListView:View{
     
     @State private var viewModel = CategoryViewModel(categoryList: categoryList)
+    //MARK: DEBUG THAT!!
     @State private var selectedCategory:String = ""
-    
+    //----------------------------------------------
    var body : some View {
        HStack{
            ScrollView(.horizontal,showsIndicators: false){
