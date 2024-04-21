@@ -4,77 +4,78 @@
 //
 //  Created by Sebastian Marquez Rojas on 19/04/2024.
 //
-
 import SwiftUI
 
-    struct ProductListView: View {
-        @State  var viewModel = ProductViewModel(productList: productList)
-        @Binding var selectedCategory:String
-        var body:some View{
-            ScrollView(.horizontal,showsIndicators: false){
-                ZStack{
-                    HStack(alignment:.center){
-                        ForEach(viewModel.productList){ item in
-                            if item.category.title == selectedCategory || selectedCategory == "All" {
-                                ZStack{
-                                    Image(item.image)
-                                        .resizable()
-                                        .scaledToFit()
+struct ProductListView: View {
+    @State var viewModel = ProductViewModel(productList: productList)
+    @Binding var selectedCategory: String
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack{
+                ForEach(viewModel.productList) { item in
+                    if item.category.title == selectedCategory || selectedCategory == "All" {
+                        VStack{
+                            ZStack {
+                                Image(item.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 430) // Límite de tamaño máximo
+                                    .padding(.trailing, -85)
+                                    //.rotationEffect(Angle(degrees: 30))
+                                    .clipped(antialiased: true)
+                                     // Asegura que la imagen no se escape del contenedor
+                                
+                                VStack(alignment:.leading){
+                                    Text("**\(item.name)**")
+                                        .padding(.top, 5)
                                     VStack{
-                                        
-                                        Text("**\(item.name)**").padding(.top,5)
                                         Text(item.category.title)
                                             .font(.callout)
                                             .padding()
+                                            .background(.white.opacity(0.7))
                                             .clipShape(Capsule())
-                                            .background(.white.opacity(0.13))
-                                        
-                                            
-                                        
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    HStack {
+                                        Text("\(item.price)").padding()
                                         Spacer()
-                                        
-                                        HStack{
-                                            Text("\(item.price)").padding()
-                                            Spacer()
-                                            Button{
-                                                //
-                                            }label: {
-                                                Image(systemName: "cart")
-                                                    .imageScale(.medium)
-                                                    .foregroundStyle(.white)
-                                                    .background(.black)
-                                                    .clipShape(Capsule())
-                                                    .frame(width:90 ,height:68)
-                                            }
-                                            
-                                        }.padding(.leading)
-                                            .padding()
-                                            .frame(maxWidth: .infinity)
-                                            .frame(height: 80)
-                                            .background(Color.gray.opacity(0.2))
-                                            .clipShape(RoundedRectangle(cornerRadius: 35))
-                                        
-                                        
-                                    }.font(.system(size: 30))
-                                        .padding(.horizontal,12)
-                                        .padding()
-                                        .frame(width: 336,height: 422)
-                                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(.green,lineWidth: 1))
-                                        .background(.green.opacity(0.2))
-                                        .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                                        Button(action: {
+                                            // Acción del botón
+                                        }) {
+                                            Image(systemName: "cart")
+                                                .imageScale(.large)
+                                                .frame(width: 90, height: 68)
+                                                .background(.black)
+                                                .clipShape(Capsule())
+                                                .foregroundStyle(.white)
+                                        }
+                                    }
+                                    .padding(.leading)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 80)
+                                    .background(Color.white.opacity(0.7))
+                                    .clipShape(RoundedRectangle(cornerRadius: 35))
                                 }
-                        
-                                
-                                
+                                .font(.system(size: 30))
+                                .padding(.horizontal, 12)
+                                .padding()
+                                .frame(width: 346, height: 422)
+                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(.green, lineWidth: 1))
+                                .background(.green.opacity(0.2))
+                                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                             }
-                        }.padding(20)
+                            .clipped() // Aquí aplicamos el efecto de "overflow: hidden"
+                        }
                     }
                 }
-         
-            }.padding(.top,50)
-                .padding(.horizontal,12)
+                .padding(20)
+            }
         }
+        .padding(.top, 20)
+        .padding(.horizontal, 12)
     }
-
-
-
+}

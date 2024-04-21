@@ -15,7 +15,6 @@ struct CategoryListView:View{
     
    var body : some View {
        HStack{
-           
            ScrollView(.horizontal,showsIndicators: false){
                HStack{
                    ForEach(viewModel.categoryList,id: \.self){ item in
