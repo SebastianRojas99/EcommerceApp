@@ -34,11 +34,12 @@ struct ProductListView: View {
                                     HStack {
                                         Text("\(item.price)").padding()
                                         Spacer()
-                                        Button(action: {
-                                            // Acción del botón
-                                        }) {
+                                        //MARK: BOTON NO ANDA!
+                                        Button{
+                                            print("Adding item to cart...")
+                                        }label:{
                                             Image(systemName: "cart")
-                                                .imageScale(.large)
+                                                .imageScale(.medium)
                                                 .frame(width: 90, height: 68)
                                                 .background(.black)
                                                 .clipShape(Capsule())

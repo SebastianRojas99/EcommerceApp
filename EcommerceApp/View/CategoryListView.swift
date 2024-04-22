@@ -20,6 +20,7 @@ struct CategoryListView:View{
                    ForEach(viewModel.categoryList,id: \.self){ item in
                        Button{
                            selectedCategory = item.title
+                          
                        }label: {
                            HStack{
                                if item.title !=  "All"{
