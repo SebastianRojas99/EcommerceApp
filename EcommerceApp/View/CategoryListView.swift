@@ -29,7 +29,7 @@ struct CategoryListView:View{
                            }
                        }
                        .padding()
-                       .background(selectedCategory == item.title ? .green.opacity(0.3) : .gray.opacity(0.2))
+                       .background(selectedCategory == item.title ? item.color.opacity(0.3) : .gray.opacity(0.2))
                        .foregroundStyle(.black)
                        .clipShape(.capsule)
                    }

@@ -57,8 +57,8 @@ struct ProductListView: View {
                                 .padding(.horizontal, 12)
                                 .padding()
                                 .frame(width: 346, height: 422)
-                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(.green, lineWidth: 1))
-                                .background(.green.opacity(0.2))
+                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 1))
+                                .background(item.category.color.opacity(0.2))
                                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                                 
                                 Image(item.image)

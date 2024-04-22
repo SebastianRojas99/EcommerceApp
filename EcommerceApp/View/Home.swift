@@ -22,7 +22,7 @@ struct Home: View {
                 //how to create a header
                 
                 HStack{
-                    Text("Shop your favorite **Sneakers**")
+                    Text("Shop your favorite **Sneakers**👟")
                         .font(.system(size: 32))
                         .padding(.trailing)
                     Spacer()
@@ -54,6 +54,10 @@ struct Home: View {
         
     }
 }
+
+
+
+
 #Preview {
     Home()
 }
