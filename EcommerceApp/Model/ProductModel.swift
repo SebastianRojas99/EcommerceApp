@@ -21,7 +21,6 @@ var productList:[ProductModel] = [
     ProductModel(name: "Adidas Predator", description: "A high-performance soccer cleat", image: "Predator",price: "$250", category: categoryList[1]),
     ProductModel(name: "Nike Air Max 90", description: "Classic Nike sneaker with Air cushioning.",image: "Airmax90", price: "$120", category: categoryList[3]),
        ProductModel(name: "Adidas Ultra Boost", description: "Comfortable and stylish running shoe.", image: "Ultra",price: "$180", category: categoryList[1]),
-       ProductModel(name: "Converse Chuck Taylor All Star", description: "Iconic canvas sneaker suitable for everyday wear.",image: "Converse", price: "$55", category: categoryList[4]),
        ProductModel(name: "Jordan 4 Retro", description: "Retrospective design with premium materials.", image: "J4",price: "$200", category: categoryList[3]),
        ProductModel(name: "Adidas Stan Smith", description: "Classic tennis shoe with a minimalist design.", image: "Bape",price: "$80", category: categoryList[4]),
        ProductModel(name: "Reebok Club C 85", description: "Heritage tennis shoe with a timeless look.", image: "Reebok",price: "$75", category: categoryList[3]),

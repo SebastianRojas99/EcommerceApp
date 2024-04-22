@@ -17,6 +17,7 @@ struct ProductListView: View {
                     if item.category.title == selectedCategory || selectedCategory == "All" {
                         VStack{
                             ZStack {
+                                
                                 VStack(alignment:.leading){
                                     Text("**\(item.name)**")
                                         .padding(.top, 5)
@@ -50,6 +51,7 @@ struct ProductListView: View {
                                     .frame(height: 80)
                                     .background(Color.white.opacity(0.7))
                                     .clipShape(RoundedRectangle(cornerRadius: 35))
+                                    
                                 }
                                 .font(.system(size: 30))
                                 .padding(.horizontal, 12)
@@ -62,7 +64,7 @@ struct ProductListView: View {
                                 Image(item.image)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(maxWidth: 430) // Límite de tamaño máximo
+                                    .frame(maxWidth: 380) // Límite de tamaño máximo
                                     .padding(.trailing, -85)
                                     .clipped(antialiased: true) // Asegura que la imagen no se escape del contenedor
                             }

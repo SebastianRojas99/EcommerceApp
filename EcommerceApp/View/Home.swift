@@ -17,11 +17,11 @@ struct Home: View {
     var body: some View {
         
         ScrollView{
+            
             VStack{
                 //how to create a header
                 
                 HStack{
-                    
                     Text("Shop your favorite **Sneakers**")
                         .font(.system(size: 32))
                         .padding(.trailing)
