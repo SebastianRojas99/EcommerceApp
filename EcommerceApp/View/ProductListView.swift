@@ -17,15 +17,6 @@ struct ProductListView: View {
                     if item.category.title == selectedCategory || selectedCategory == "All" {
                         VStack{
                             ZStack {
-                                Image(item.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 430) // Límite de tamaño máximo
-                                    .padding(.trailing, -85)
-                                    //.rotationEffect(Angle(degrees: 30))
-                                    .clipped(antialiased: true)
-                                     // Asegura que la imagen no se escape del contenedor
-                                
                                 VStack(alignment:.leading){
                                     Text("**\(item.name)**")
                                         .padding(.top, 5)
@@ -67,6 +58,13 @@ struct ProductListView: View {
                                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(.green, lineWidth: 1))
                                 .background(.green.opacity(0.2))
                                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                                
+                                Image(item.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 430) // Límite de tamaño máximo
+                                    .padding(.trailing, -85)
+                                    .clipped(antialiased: true) // Asegura que la imagen no se escape del contenedor
                             }
                             .clipped() // Aquí aplicamos el efecto de "overflow: hidden"
                         }
