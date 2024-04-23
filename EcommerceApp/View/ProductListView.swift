@@ -12,71 +12,87 @@ struct ProductListView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
+            
             HStack{
                 ForEach(viewModel.productList) { item in
                     if item.category.title == selectedCategory || selectedCategory == "All" {
-                        VStack{
-                            ZStack {
+                        
+                        ZStack{
+                            
+                            
+                            ZStack{
                                 
-                                VStack(alignment:.leading){
-                                    Text("**\(item.name)**")
-                                        .padding(.top, 5)
-                                    VStack{
+                                VStack{
+                                    VStack(alignment:.leading){
+                                        Text("**\(item.name)**")
+                                            .padding(.top, 5)
+                                        
                                         Text(item.category.title)
                                             .font(.callout)
                                             .padding()
                                             .background(.white.opacity(0.7))
                                             .clipShape(Capsule())
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    HStack {
-                                        Text("\(item.price)").padding()
+                                        
                                         Spacer()
-                                        //MARK: BOTON NO ANDA!
-                                        Button{
-                                            print("Adding item to cart...")
-                                        }label:{
-                                            Image(systemName: "cart")
-                                                .imageScale(.medium)
+                                        
+                                        
+                                        
+                                        HStack {
+                                            Text("\(item.price)").padding()
+                                            Spacer()
+                                            Button {
+                                                print("Adding item to cart...")
+                                            } label: {
+                                                Image(systemName: "cart")
+                                                    .zIndex(1)
+                                                
+                                                
+                                            }.imageScale(.medium)
                                                 .frame(width: 90, height: 68)
                                                 .background(.black)
                                                 .clipShape(Capsule())
                                                 .foregroundStyle(.white)
+                                            
+                                            
+                                            
+                                            
                                         }
+                                        .padding(.leading)
+                                        .padding()
+                                        .frame(height: 80)
+                                        .background(Color.white.opacity(0.7))
+                                        .clipShape(RoundedRectangle(cornerRadius: 35))
                                     }
-                                    .padding(.leading)
+                                    .font(.system(size: 30))
+                                    .padding(.horizontal, 12)
                                     .padding()
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 80)
-                                    .background(Color.white.opacity(0.7))
-                                    .clipShape(RoundedRectangle(cornerRadius: 35))
+                                    .frame(width: 380, height: 450)
+                                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 1))
+                                    .background(item.category.color.opacity(0.2))
+                                    .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                                    
+                                    
+                                    
                                     
                                 }
-                                .font(.system(size: 30))
-                                .padding(.horizontal, 12)
-                                .padding()
-                                .frame(width: 346, height: 422)
-                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 1))
-                                .background(item.category.color.opacity(0.2))
-                                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-                                
                                 Image(item.image)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(maxWidth: 380) // Límite de tamaño máximo
-                                    .padding(.trailing, -85)
-                                    .clipped(antialiased: true) // Asegura que la imagen no se escape del contenedor
+                                    .frame(maxHeight:350)
+                                    .padding(.trailing, -65)
+                                    .clipped() // Asegura que la imagen no se escape del contenedor0
                             }
-                            .clipped() // Aquí aplicamos el efecto de "overflow: hidden"
-                        }
+                            
+                            
+                        }.clipped()
                     }
-                }
-                .padding(20)
+                }.padding(.top, 20)
+                    .padding(.horizontal, 12)
+                
             }
+            .padding(20)
         }
-        .padding(.top, 20)
-        .padding(.horizontal, 12)
     }
 }
+
