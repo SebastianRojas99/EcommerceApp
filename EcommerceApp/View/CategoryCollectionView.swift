@@ -10,9 +10,7 @@ import SwiftUI
 struct CategoryCollectionView: View {
     var body: some View {
         NavigationStack{
-            ScrollView{
-                
-            }
+            //MARK: TRY USE LAZYVGRID HERE.
         }.navigationTitle("Choose the best hype **Sneakers**").font(.largeTitle)
     }
 }

@@ -11,10 +11,8 @@ struct ProductListView: View {
   @Binding var selectedCategory: String
    
     var body: some View {
-        ScrollView{
-            
-            
-            LazyVGrid(columns: [GridItem(.fixed(20)),GridItem(.fixed(20))], content: {
+        ScrollView(.horizontal,showsIndicators:false){
+            HStack{
                 ForEach(viewModel.productList) { item in
                     if item.category.title == selectedCategory || selectedCategory == "All" {
                         
@@ -84,7 +82,7 @@ struct ProductListView: View {
                         }.clipped()
                     }
                 }
-            })
+                }
         }
     }
 }
