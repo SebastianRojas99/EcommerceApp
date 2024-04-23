@@ -22,10 +22,10 @@ struct ProductListView: View {
                                 Image(item.image)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(maxWidth: 450) // Límite de tamaño máximo
-                                    .frame(maxHeight:450)
+                                    .frame(maxWidth: 500) // Límite de tamaño máximo
+                                    .frame(maxHeight:500)
                                     .padding(.trailing, -65)
-                                    .clipped() // Asegura que la imagen no se escape del contenedor0
+                                    .clipped() 
                                 VStack{
                                     VStack(alignment:.leading){
                                         Text("**\(item.name)**")
