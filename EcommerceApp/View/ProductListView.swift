@@ -18,10 +18,14 @@ struct ProductListView: View {
                     if item.category.title == selectedCategory || selectedCategory == "All" {
                         
                         ZStack{
-                            
-                            
                             ZStack{
-                                
+                                Image(item.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 450) // Límite de tamaño máximo
+                                    .frame(maxHeight:450)
+                                    .padding(.trailing, -65)
+                                    .clipped() // Asegura que la imagen no se escape del contenedor0
                                 VStack{
                                     VStack(alignment:.leading){
                                         Text("**\(item.name)**")
@@ -63,26 +67,17 @@ struct ProductListView: View {
                                         .background(Color.white.opacity(0.7))
                                         .clipShape(RoundedRectangle(cornerRadius: 35))
                                     }
-                                    .font(.system(size: 30))
-                                    .padding(.horizontal, 12)
-                                    .padding()
-                                    .frame(width: 360, height: 450)
-                                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 1))
-                                    .background(item.category.color.opacity(0.2))
-                                    .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-                                    
-                                    
-                                    
-                                    
+
                                 }
-                                Image(item.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 380) // Límite de tamaño máximo
-                                    .frame(maxHeight:350)
-                                    .padding(.trailing, -65)
-                                    .clipped() // Asegura que la imagen no se escape del contenedor0
-                            }
+                                
+                            }.font(.system(size: 30))
+                                .padding(.horizontal, 12)
+                                .padding()
+                                .frame(width: 360, height: 450)
+                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 1))
+                                .background(item.category.color.opacity(0.2))
+                                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                                
                             
                             
                         }.clipped()
