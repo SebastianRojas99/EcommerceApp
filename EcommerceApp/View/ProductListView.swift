@@ -7,13 +7,14 @@
 import SwiftUI
 
 struct ProductListView: View {
-    @State var viewModel = ProductViewModel(productList: productList)
-    @Binding var selectedCategory: String
-    
+  @State var viewModel = ProductViewModel(productList: productList)
+  @Binding var selectedCategory: String
+   
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
+        ScrollView{
             
-            HStack{
+            
+            LazyVGrid(columns: [GridItem(.fixed(20)),GridItem(.fixed(20))], content: {
                 ForEach(viewModel.productList) { item in
                     if item.category.title == selectedCategory || selectedCategory == "All" {
                         
@@ -25,7 +26,7 @@ struct ProductListView: View {
                                     .frame(maxWidth: 500) // Límite de tamaño máximo
                                     .frame(maxHeight:500)
                                     .padding(.trailing, -65)
-                                    .clipped() 
+                                    .clipped()
                                 VStack{
                                     VStack(alignment:.leading){
                                         Text("**\(item.name)**")
@@ -67,7 +68,7 @@ struct ProductListView: View {
                                         .background(Color.white.opacity(0.7))
                                         .clipShape(RoundedRectangle(cornerRadius: 35))
                                     }
-
+                                    
                                 }
                                 
                             }.font(.system(size: 30))
@@ -77,17 +78,13 @@ struct ProductListView: View {
                                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 1))
                                 .background(item.category.color.opacity(0.2))
                                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-                                
+                            
                             
                             
                         }.clipped()
                     }
-                }.padding(.top, 20)
-                    .padding(.horizontal, 12)
-                
-            }
-            
+                }
+            })
         }
     }
 }
-

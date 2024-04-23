@@ -42,7 +42,7 @@ struct Home: View {
           // Use NavigationLink for category selection
           if !selectedCategory.isEmpty {
             NavigationLink {
-              CategoryCollectionView()
+              ProductListView(selectedCategory: $selectedCategory)
             } label: {
               HStack {
                 Text("**\(selectedCategory)** shoes").font(.system(size: 24))
@@ -56,7 +56,7 @@ struct Home: View {
           }
 
           // Product list (unchanged)
-          ProductListView(selectedCategory: $selectedCategory)
+          //ProductListView(selectedCategory: $selectedCategory)
         }
       }
     }

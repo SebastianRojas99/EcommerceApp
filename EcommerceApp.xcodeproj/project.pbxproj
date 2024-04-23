@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960E2F712BD8025E005ACE6A /* CardSmallProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E2F702BD8025E005ACE6A /* CardSmallProduct.swift */; };
 		966860292BD0B81000546035 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966860282BD0B81000546035 /* ProductModel.swift */; };
 		96904BF42BD35055000F1CC1 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96904BF32BD35055000F1CC1 /* ProductViewModel.swift */; };
 		96904BF62BD35063000F1CC1 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96904BF52BD35063000F1CC1 /* CategoryViewModel.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		960E2F702BD8025E005ACE6A /* CardSmallProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSmallProduct.swift; sourceTree = "<group>"; };
 		966860282BD0B81000546035 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		96904BF32BD35055000F1CC1 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		96904BF52BD35063000F1CC1 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				96904BF72BD3567D000F1CC1 /* CategoryListView.swift */,
 				96D228C62BD35FC400FE7806 /* ProductListView.swift */,
 				96BD80272BD6005600508104 /* CategoryCollectionView.swift */,
+				960E2F702BD8025E005ACE6A /* CardSmallProduct.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			files = (
 				96BD80282BD6005600508104 /* CategoryCollectionView.swift in Sources */,
 				96904BF62BD35063000F1CC1 /* CategoryViewModel.swift in Sources */,
+				960E2F712BD8025E005ACE6A /* CardSmallProduct.swift in Sources */,
 				96EBCB172BD006CE00F0DC7B /* ContentView.swift in Sources */,
 				96EBCB272BD019A500F0DC7B /* CategoryModel.swift in Sources */,
 				96904BF42BD35055000F1CC1 /* ProductViewModel.swift in Sources */,

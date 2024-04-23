@@ -9,11 +9,11 @@ import SwiftUI
 
 struct CategoryCollectionView: View {
     var body: some View {
-        NavigationView{
+        NavigationStack{
             ScrollView{
                 
             }
-        }
+        }.navigationTitle("Choose the best hype **Sneakers**").font(.largeTitle)
     }
 }
 
