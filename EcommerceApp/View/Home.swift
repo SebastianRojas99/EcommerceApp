@@ -40,23 +40,26 @@ struct Home: View {
           CategoryListView(selectedCategory: $selectedCategory)
 
           // Use NavigationLink for category selection
-          if !selectedCategory.isEmpty {
-            NavigationLink {
-              CardSmallProduct(selectedCategory: $selectedCategory)
-            } label: {
-              HStack {
+            HStack{
                 Text("**\(selectedCategory)** shoes").font(.system(size: 24))
                 Spacer()
-                Image(systemName: "arrow.right")
-                  .imageScale(.large)
-              }
-              .padding(.horizontal, 12)
-              .padding(.vertical, 6)
+                if !selectedCategory.isEmpty {
+                  NavigationLink {
+                    CardSmallProduct(selectedCategory: $selectedCategory)
+                  } label: {
+                    HStack {
+                      Image(systemName: "arrow.right")
+                        .imageScale(.large)
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                  }
+                }
             }
-          }
+          
 
           // Product list (unchanged)
-          ProductListView(selectedCategory: $selectedCategory)
+          //ProductListView(selectedCategory: $selectedCategory)
         }
       }
     }
