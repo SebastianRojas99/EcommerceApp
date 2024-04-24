@@ -14,11 +14,11 @@ struct CardSmallProduct: View {
         ScrollView{
             
             
-            LazyVGrid(columns: [GridItem(.fixed(20)),GridItem(.fixed(20))], content: {
+            LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible())],spacing: 20, content: {
                 ForEach(viewModel.productList) { item in
                     if item.category.title == selectedCategory || selectedCategory == "All" {
                         
-                            ZStack(){
+                            
                                 ZStack{
                                     Image(item.image)
                                         .resizable()
@@ -79,10 +79,11 @@ struct CardSmallProduct: View {
                                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 1))
                                     .background(item.category.color.opacity(0.2))
                                     .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                                    .clipped()
                                 
                                 
                                 
-                            }.clipped()
+                            
                         }
 
                 }
