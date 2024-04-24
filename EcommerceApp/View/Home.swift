@@ -16,7 +16,7 @@ struct Home: View {
     NavigationStack {
       ScrollView {
         VStack {
-          // Header (unchanged)
+          // Header
           HStack {
             Text("Shop your favorite **Sneakers**")
               .font(.system(size: 32))
