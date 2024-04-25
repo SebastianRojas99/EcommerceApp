@@ -26,7 +26,7 @@ struct CardSmallProduct: View {
                                         .padding(.trailing, -45)
                                         .clipped()
                                     
-                                    VStack{
+                                    VStack(alignment:.leading){
                                         VStack(alignment:.leading){
                                             Text("**\(item.name)**")
                                                 .font(.system(size: 16))
@@ -35,10 +35,10 @@ struct CardSmallProduct: View {
                                             
                                             Text(item.category.title)
                                                 .font(.callout)
-                                                .padding(.all)
+                                                .padding(10)
                                                 .background(.white.opacity(0.7))
                                                 .clipShape(Capsule())
-                                        }
+                                        }.padding(.horizontal,10)
                                             
                                             Spacer()
                                             
@@ -74,6 +74,7 @@ struct CardSmallProduct: View {
                                         
                                         
                                     }.frame(width: 180, height: 250)
+                                
                                     
                                 }.font(.system(size: 30))
                                     .padding(.horizontal, 12)
