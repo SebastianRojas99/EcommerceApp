@@ -11,9 +11,7 @@ struct CardSmallProduct: View {
     @State var viewModel = ProductViewModel(productList: productList)
     @Binding var selectedCategory: String
     var body: some View {
-        ScrollView{
-            
-            
+        ScrollView(.vertical,showsIndicators: false){
             LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible())],spacing: 20, content: {
                 ForEach(viewModel.productList) { item in
                     if item.category.title == selectedCategory || selectedCategory == "All" {
@@ -25,27 +23,31 @@ struct CardSmallProduct: View {
                                         .scaledToFit()
                                         .frame(maxWidth: 500) // Límite de tamaño máximo
                                         .frame(maxHeight:500)
-                                        .padding(.trailing, -65)
+                                        .padding(.trailing, -45)
                                         .clipped()
                                     
                                     VStack{
                                         VStack(alignment:.leading){
                                             Text("**\(item.name)**")
-                                                .font(.system(size: 14))
-                                                .padding()
+                                                .font(.system(size: 16))
+                                                .padding(.top)
+                                                .font(.largeTitle)
                                             
                                             Text(item.category.title)
                                                 .font(.callout)
-                                                .padding()
+                                                .padding(.all)
                                                 .background(.white.opacity(0.7))
                                                 .clipShape(Capsule())
+                                        }
                                             
                                             Spacer()
                                             
                                             
                                             
                                             HStack {
-                                                Text("\(item.price)").padding()
+                                                Text("\(item.price)")
+                                                    .font(.system(size:18))
+                                                    
                                                 Spacer()
                                                 Button {
                                                     print("Adding item to cart...")
@@ -55,7 +57,7 @@ struct CardSmallProduct: View {
                                                     
                                                     
                                                 }.imageScale(.small)
-                                                    .frame(width: 90, height: 68)
+                                                    .frame(width: 50, height: 40)
                                                     .background(.black)
                                                     .clipShape(Capsule())
                                                     .foregroundStyle(.white)
@@ -66,18 +68,18 @@ struct CardSmallProduct: View {
                                             }
                                             .padding(.leading)
                                             .padding()
-                                            .frame(height: 80)
+                                            .frame(height: 55)
                                             .background(Color.white.opacity(0.7))
                                             .clipShape(RoundedRectangle(cornerRadius: 35))
-                                        }
+                                        
                                         
                                     }.frame(width: 180, height: 250)
                                     
                                 }.font(.system(size: 30))
                                     .padding(.horizontal, 12)
-                                    .padding()
+                                    .padding(.bottom,10)
                                     .frame(width: 180, height: 250)
-                                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 1))
+                                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 0))
                                     .background(item.category.color.opacity(0.2))
                                     .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                                     .clipped()

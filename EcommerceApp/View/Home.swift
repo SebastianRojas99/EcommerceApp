@@ -49,7 +49,7 @@ struct Home: View {
                   } label: {
                     HStack {
                       Image(systemName: "arrow.right")
-                        .imageScale(.large)
+                            .imageScale(.large)
                     }
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
