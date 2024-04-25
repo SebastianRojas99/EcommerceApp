@@ -22,11 +22,15 @@ struct Home: View {
               .font(.system(size: 32))
               .padding(.trailing)
             Spacer()
-            Image(systemName: "cart")
-              .imageScale(.large)
-              .font(.system(size: 25))
-              .padding()
-              .frame(width: 70, height: 90)
+              NavigationLink{
+                  CartView()
+              }label: {
+                  HStack{
+                      Image(systemName: "cart")
+                          .imageScale(.large)
+                          .foregroundStyle(.secondary)
+                  }
+              }
             Image(systemName: "line.3.horizontal")
               .imageScale(.large)
               .font(.system(size: 25))
