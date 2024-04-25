@@ -28,7 +28,7 @@ struct Home: View {
                   HStack{
                       Image(systemName: "cart")
                           .imageScale(.large)
-                          .foregroundStyle(.secondary)
+                          .foregroundStyle(.secondary) 
                   }
               }
             Image(systemName: "line.3.horizontal")
