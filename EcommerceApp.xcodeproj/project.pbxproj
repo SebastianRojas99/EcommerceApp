@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		960E2F712BD8025E005ACE6A /* CardSmallProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E2F702BD8025E005ACE6A /* CardSmallProduct.swift */; };
 		961132012BDAE72B005BC821 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961132002BDAE72B005BC821 /* CartView.swift */; };
+		961132032BDAFAA5005BC821 /* CartToCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961132022BDAFAA5005BC821 /* CartToCard.swift */; };
+		961132062BDB027D005BC821 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961132052BDB027D005BC821 /* DismissButton.swift */; };
 		966860292BD0B81000546035 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966860282BD0B81000546035 /* ProductModel.swift */; };
 		96904BF42BD35055000F1CC1 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96904BF32BD35055000F1CC1 /* ProductViewModel.swift */; };
 		96904BF62BD35063000F1CC1 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96904BF52BD35063000F1CC1 /* CategoryViewModel.swift */; };
 		96904BF82BD3567D000F1CC1 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96904BF72BD3567D000F1CC1 /* CategoryListView.swift */; };
-		96BD80282BD6005600508104 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD80272BD6005600508104 /* CategoryCollectionView.swift */; };
 		96D228C72BD35FC400FE7806 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D228C62BD35FC400FE7806 /* ProductListView.swift */; };
 		96EBCB152BD006CE00F0DC7B /* EcommerceAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EBCB142BD006CE00F0DC7B /* EcommerceAppApp.swift */; };
 		96EBCB172BD006CE00F0DC7B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EBCB162BD006CE00F0DC7B /* ContentView.swift */; };
@@ -26,11 +27,12 @@
 /* Begin PBXFileReference section */
 		960E2F702BD8025E005ACE6A /* CardSmallProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSmallProduct.swift; sourceTree = "<group>"; };
 		961132002BDAE72B005BC821 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		961132022BDAFAA5005BC821 /* CartToCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartToCard.swift; sourceTree = "<group>"; };
+		961132052BDB027D005BC821 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		966860282BD0B81000546035 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		96904BF32BD35055000F1CC1 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		96904BF52BD35063000F1CC1 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		96904BF72BD3567D000F1CC1 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
-		96BD80272BD6005600508104 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
 		96D228C62BD35FC400FE7806 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		96EBCB112BD006CE00F0DC7B /* EcommerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcommerceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96EBCB142BD006CE00F0DC7B /* EcommerceAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcommerceAppApp.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		961132042BDB0266005BC821 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				961132052BDB027D005BC821 /* DismissButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		96904BF22BD3503B000F1CC1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		96EBCB132BD006CE00F0DC7B /* EcommerceApp */ = {
 			isa = PBXGroup;
 			children = (
+				961132042BDB0266005BC821 /* Components */,
 				96904BF22BD3503B000F1CC1 /* ViewModel */,
 				96EBCB252BD0197F00F0DC7B /* Model */,
 				96EBCB242BD0074200F0DC7B /* View */,
@@ -105,9 +116,9 @@
 				96EBCB222BD006EE00F0DC7B /* Home.swift */,
 				96904BF72BD3567D000F1CC1 /* CategoryListView.swift */,
 				96D228C62BD35FC400FE7806 /* ProductListView.swift */,
-				96BD80272BD6005600508104 /* CategoryCollectionView.swift */,
 				960E2F702BD8025E005ACE6A /* CardSmallProduct.swift */,
 				961132002BDAE72B005BC821 /* CartView.swift */,
+				961132022BDAFAA5005BC821 /* CartToCard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,13 +202,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96BD80282BD6005600508104 /* CategoryCollectionView.swift in Sources */,
 				96904BF62BD35063000F1CC1 /* CategoryViewModel.swift in Sources */,
 				960E2F712BD8025E005ACE6A /* CardSmallProduct.swift in Sources */,
+				961132062BDB027D005BC821 /* DismissButton.swift in Sources */,
 				96EBCB172BD006CE00F0DC7B /* ContentView.swift in Sources */,
 				96EBCB272BD019A500F0DC7B /* CategoryModel.swift in Sources */,
 				96904BF42BD35055000F1CC1 /* ProductViewModel.swift in Sources */,
 				961132012BDAE72B005BC821 /* CartView.swift in Sources */,
+				961132032BDAFAA5005BC821 /* CartToCard.swift in Sources */,
 				96EBCB232BD006EE00F0DC7B /* Home.swift in Sources */,
 				96EBCB152BD006CE00F0DC7B /* EcommerceAppApp.swift in Sources */,
 				96D228C72BD35FC400FE7806 /* ProductListView.swift in Sources */,

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CartView: View {
-    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -18,16 +18,25 @@ struct CartView: View {
                         Spacer()
                         //buttons
                         Button{
-                            dismiss()
+                            
                         }label: {
-                            Image(systemName: "arrow.left")
-                                .imageScale(.large)
+                            Text("3")
+                                .padding()
+                                .frame(width: 70,height: 90)
+                                .background(.green.opacity(0.4))
+                                .clipShape(Capsule())
                         }
+                        DismissButton()
                         
+                        
+                    }
+                    ForEach(productList){item in
+                        CartToCard(product: item)
                     }
                 }
             }
         }.navigationBarBackButtonHidden()
+            .padding()
     }
 }
 
