@@ -9,13 +9,12 @@ import SwiftUI
 struct ProductListView: View {
   @State var viewModel = ProductViewModel(productList: productList)
   @Binding var selectedCategory: String
-   
+   let productQuantity = 3
     var body: some View {
         ScrollView(.horizontal,showsIndicators:false){
             HStack{
-                ForEach(viewModel.productList) { item in
-                    if item.category.title == selectedCategory || selectedCategory == "All" {
-                        
+                ForEach(viewModel.productList.prefix(productQuantity)) { item in
+                    if selectedCategory == "All" || item.category.title == selectedCategory{
                         ZStack{
                             ZStack{
                                 Image(item.image)
