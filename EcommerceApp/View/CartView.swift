@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CartView: View {
-    
+     //@State var product = ProductViewModel(productList: productList)
     var body: some View {
+        
         NavigationStack{
-            ScrollView{
-                VStack{
+            ScrollView(showsIndicators:false){
+                VStack(alignment: .center,spacing: 20){
                     HStack{
                         Text("Cart").font(.largeTitle)
                         Spacer()
@@ -30,8 +31,39 @@ struct CartView: View {
                         
                         
                     }
-                    ForEach(productList){item in
-                        CartToCard(product: item)
+                    VStack(spacing:20){
+                        ForEach(productList){item in
+                            CartToCard(product: item)
+                            
+                        }
+                        
+                    }.padding(.horizontal)
+                    
+                    VStack(alignment:.leading){
+                        HStack{
+                            Text("Delivery amount")
+                            Spacer()
+                            Text("$4.00")
+                                .font(.system(size: 24,weight: .semibold))
+                        }
+                        
+                        
+                        Divider()
+                        Text("Total amount")
+                            .font(.system(size: 24,weight: .semibold))
+                        Text("$38.00")
+                            .font(.system(size: 36,weight: .bold))
+                    }
+                    .padding(30)
+                    .frame(maxWidth: .infinity)
+                    .background(.green.opacity(0.5))
+                    .clipShape(.rect(cornerRadius: 30))
+                    .padding()
+                   
+                    Button{
+                        //
+                    }label: {
+                        Text("Make payment")
                     }
                 }
             }
@@ -40,6 +72,3 @@ struct CartView: View {
     }
 }
 
-#Preview {
-    CartView()
-}

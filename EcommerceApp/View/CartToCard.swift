@@ -9,12 +9,28 @@ import SwiftUI
 
 struct CartToCard: View {
     @State var product:ProductModel
+    
     var body: some View {
-        VStack{
+        HStack{
             Image(product.image)
                 .resizable()
                 .scaledToFit()
-                .frame(width:80 ,height: 40)
+                .padding()
+                .frame(width:80 ,height: 80)
+                .background(.gray.opacity(0.1))
+                .clipShape(Circle()) 
+            VStack(alignment:.leading,content:{
+                Text("\(product.name)")
+                    .font(.headline)
+                Text("\(product.category.title)")
+                    .font(.callout)
+            })
+            Spacer()
+            Text("\(product.price)")
+                .padding()
+                .background(.green.opacity(0.4))
+                .clipShape(Capsule())
+            
         }
     }
 }
