@@ -9,8 +9,10 @@ import SwiftUI
 struct ProductListView: View {
   @State var viewModel = ProductViewModel(productList: productList)
   @Binding var selectedCategory: String
+  @Environment(CartvViewModel.self) private var cart
    let productQuantity = 3
     var body: some View {
+        Spacer()
         ScrollView(.horizontal,showsIndicators:false){
             HStack{
                 ForEach(viewModel.productList.prefix(productQuantity)) { item in
@@ -40,9 +42,10 @@ struct ProductListView: View {
                                         
                                         
                                         HStack {
-                                            Text("\(item.price)").padding()
+                                            Text("$\(item.price)").padding()
                                             Spacer()
                                             Button {
+                                                cart.addToCart(product:item)
                                                 print("Adding item to cart...")
                                             } label: {
                                                 Image(systemName: "cart")

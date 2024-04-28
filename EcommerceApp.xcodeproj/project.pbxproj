@@ -42,7 +42,7 @@
 		96D228C62BD35FC400FE7806 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		96EBCB112BD006CE00F0DC7B /* EcommerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcommerceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96EBCB142BD006CE00F0DC7B /* EcommerceAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcommerceAppApp.swift; sourceTree = "<group>"; };
-		96EBCB162BD006CE00F0DC7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		96EBCB162BD006CE00F0DC7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../ContentView.swift; sourceTree = "<group>"; };
 		96EBCB182BD006D000F0DC7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96EBCB1B2BD006D000F0DC7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		96EBCB222BD006EE00F0DC7B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -102,7 +102,6 @@
 				96EBCB252BD0197F00F0DC7B /* Model */,
 				96EBCB242BD0074200F0DC7B /* View */,
 				96EBCB142BD006CE00F0DC7B /* EcommerceAppApp.swift */,
-				96EBCB162BD006CE00F0DC7B /* ContentView.swift */,
 				96EBCB182BD006D000F0DC7B /* Assets.xcassets */,
 				96EBCB1A2BD006D000F0DC7B /* Preview Content */,
 			);
@@ -123,10 +122,11 @@
 				96EBCB222BD006EE00F0DC7B /* Home.swift */,
 				96904BF72BD3567D000F1CC1 /* CategoryListView.swift */,
 				96D228C62BD35FC400FE7806 /* ProductListView.swift */,
+				965FC6992BDBF18300DE5931 /* CartManager.swift */,
 				960E2F702BD8025E005ACE6A /* CardSmallProduct.swift */,
 				961132002BDAE72B005BC821 /* CartView.swift */,
 				961132022BDAFAA5005BC821 /* CartToCard.swift */,
-				965FC6992BDBF18300DE5931 /* CartManager.swift */,
+				96EBCB162BD006CE00F0DC7B /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

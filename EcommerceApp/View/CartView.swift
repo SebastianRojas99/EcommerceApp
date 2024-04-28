@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CartView: View {
      //@State var product = ProductViewModel(productList: productList)
+    @Environment(CartvViewModel.self) private var cart
     var body: some View {
         
         NavigationStack{
@@ -51,7 +52,7 @@ struct CartView: View {
                         Divider()
                         Text("Total amount")
                             .font(.system(size: 24,weight: .semibold))
-                        Text("$38.00")
+                        Text("$\(cart.total)")
                             .font(.system(size: 36,weight: .bold))
                     }
                     .padding(30)

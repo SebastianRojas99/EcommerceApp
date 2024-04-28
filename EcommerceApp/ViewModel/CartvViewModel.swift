@@ -13,13 +13,16 @@ import Observation
 class CartvViewModel{
     
     
-    var total:Int = 0
+    private(set) var total:Int = 0
+    private(set) var products:[ProductModel] = []
     
-    func addToCart(){
-        
+    func addToCart(product:ProductModel){
+        products.append(product)
+        total += product.price
+    }
+    func removeToCart(product:ProductModel){
+        products = products.filter{$0.id != product.id}
+        total -= product.price
     }
     
-    init(total: Int) {
-        self.total = total
-    }
 }
