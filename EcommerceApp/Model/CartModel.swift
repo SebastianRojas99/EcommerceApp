@@ -8,7 +8,7 @@
 import Foundation
 
 struct Cart{
-    var title:Int
+    var total:Int
 }
 
 var myCart:[ProductModel] = []
