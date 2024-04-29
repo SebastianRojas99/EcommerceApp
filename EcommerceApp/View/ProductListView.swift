@@ -14,7 +14,7 @@ struct ProductListView: View {
     var body: some View {
         Spacer()
         ScrollView(.horizontal,showsIndicators:false){
-            HStack{
+            HStack(alignment:.center,spacing:18){
                 ForEach(viewModel.productList.prefix(productQuantity)) { item in
                     if selectedCategory == "All" || item.category.title == selectedCategory{
                         ZStack{
@@ -22,7 +22,7 @@ struct ProductListView: View {
                                 Image(item.image)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(maxWidth: 500) // Límite de tamaño máximo
+                                    .frame(maxWidth: 500) 
                                     .frame(maxHeight:500)
                                     .padding(.trailing, -65)
                                     .clipped()
@@ -84,7 +84,7 @@ struct ProductListView: View {
                         }.clipped()
                     }
                 }
-                }
+            }.padding(.horizontal)
         }
     }
 }

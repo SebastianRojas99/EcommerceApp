@@ -22,7 +22,7 @@ struct CartView: View {
                         Button{
                             
                         }label: {
-                            Text("3")
+                            Text("\(cart.products.count)")
                                 .padding()
                                 .frame(width: 70,height: 90)
                                 .background(.green.opacity(0.4))
