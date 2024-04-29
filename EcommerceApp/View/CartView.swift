@@ -82,6 +82,8 @@ struct CartView: View {
             }
         }.navigationBarBackButtonHidden()
             .padding()
+            .background(.white)
+            .foregroundStyle(.black)
     }
 }
 

@@ -50,7 +50,7 @@ struct ContentView: View {
                     
                 }
             }
-        }.background(Color.white)
+        }.foregroundStyle(.black)
     }
 }
 

@@ -105,6 +105,8 @@ struct CardSmallProduct: View {
 
         }.navigationBarBackButtonHidden()
             .navigationTitle("\(selectedCategory) shoes ").font(.largeTitle)
+            .background(.white)
+            .foregroundStyle(.black)
 
     }
 }

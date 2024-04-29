@@ -70,7 +70,7 @@ struct Home: View {
           ProductListView(selectedCategory: $selectedCategory)
         }
       }
-    }
+    }.background(.white)
   }
 }
 
