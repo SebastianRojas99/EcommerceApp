@@ -14,7 +14,8 @@ struct EcommerceAppApp: App {
         WindowGroup {
             ContentView()
                 .environment(cartManager)
-                .background(.white)
+                .background(ignoresSafeAreaEdges: .all)
+                
         }
     }
 }

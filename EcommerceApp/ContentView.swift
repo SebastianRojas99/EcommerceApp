@@ -11,6 +11,7 @@ struct ContentView: View {
     @State var cartManager = CartvViewModel()
     var body: some View {
         NavigationStack{
+            
             VStack(alignment:.leading) {
                 Home()
                     .environment(cartManager)
@@ -49,10 +50,11 @@ struct ContentView: View {
                     
                 }
             }
-        }.background(.black)
-        
-        
+        }.background(Color.white)
     }
 }
 
 
+#Preview {
+    ContentView()
+}
