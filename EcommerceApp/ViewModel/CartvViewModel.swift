@@ -24,5 +24,9 @@ class CartvViewModel{
         products = products.filter{$0.id != product.id}
         total -= product.price
     }
+    func clearAllCart(){
+        products = []
+        total = 0
+    }
     
 }

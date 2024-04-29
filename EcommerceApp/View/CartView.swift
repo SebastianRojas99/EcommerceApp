@@ -74,10 +74,12 @@ struct CartView: View {
                     .padding()
                    
                     Button{
-                        //
+                        cartManager.clearAllCart()
                     }label: {
                         Text("Make payment")
                     }
+                        
+                    
                 }
             }
         }.navigationBarBackButtonHidden()

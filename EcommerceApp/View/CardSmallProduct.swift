@@ -10,7 +10,7 @@ import SwiftUI
 struct CardSmallProduct: View {
     @State var viewModel = ProductViewModel(productList: productList)
     @Binding var selectedCategory: String
-    @Environment(CartvViewModel.self) private var cart
+    @Environment(CartvViewModel.self) private var cartManager
     
     var body: some View {
         NavigationStack{
@@ -58,7 +58,7 @@ struct CardSmallProduct: View {
                                                         
                                                     Spacer()
                                                     Button {
-                                                        cart.addToCart(product: item)
+                                                        cartManager.addToCart(product: item)
                                                         print("Adding item to cart...")
                                                     } label: {
                                                         Image(systemName: "cart")

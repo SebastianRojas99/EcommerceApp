@@ -11,8 +11,8 @@ struct Home: View {
   @State private var categoryViewModel = CategoryViewModel(categoryList: categoryList)
   @State private var productViewModel = ProductViewModel(productList: productList)
   @State private var selectedCategory = ""
-  @Environment(CartvViewModel.self) private var cart
-
+  @Environment(CartvViewModel.self) private var cartManager
+  
   var body: some View {
     NavigationStack {
       ScrollView {
@@ -25,7 +25,7 @@ struct Home: View {
             Spacer()
               NavigationLink{
                   CartView()
-                      .environment(cart)
+                      .environment(cartManager)
               }label: {
                   HStack{
                       Image(systemName: "cart")
@@ -52,7 +52,7 @@ struct Home: View {
                 if !selectedCategory.isEmpty {
                   NavigationLink {
                       CardSmallProduct(selectedCategory: $selectedCategory)
-                          .environment(cart)
+                          .environment(cartManager)
                   } label: {
                     HStack {
                       Image(systemName: "arrow.right")
