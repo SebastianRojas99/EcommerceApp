@@ -10,6 +10,7 @@ import SwiftUI
 struct CartView: View {
      //@State var product = ProductViewModel(productList: productList)
     @Environment(CartvViewModel.self) private var cartManager
+    @State private var show:Bool = false
     var body: some View {
         
         NavigationStack{
@@ -73,11 +74,19 @@ struct CartView: View {
                     .clipShape(.rect(cornerRadius: 30))
                     .padding()
                    
-                    Button{
-                        cartManager.clearAllCart()
-                    }label: {
-                        Text("Make payment")
-                    }
+                    
+                        Button("make a payment"){
+                            if cartManager.products.count > 0{
+                                cartManager.clearAllCart()
+                                show.toggle()
+                            }
+                        }.alert("Payment Successful!", isPresented: $show) {
+                            Text("thanks for buy").font(.callout).foregroundStyle(.gray)
+                          }
+                    
+                    
+                    
+                
                         
                     
                 }

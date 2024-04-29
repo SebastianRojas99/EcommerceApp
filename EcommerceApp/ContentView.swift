@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var cartManager = CartvViewModel()
+    
     var body: some View {
         NavigationStack{
             
