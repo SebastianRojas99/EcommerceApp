@@ -41,7 +41,8 @@ struct ContentView: View {
                             .padding(.leading,-60)
                     }
                     .padding(30)
-                    .frame(width: .infinity,height: 80)
+                    .frame(maxWidth:.infinity)
+                    .frame(height: 80)
                     .background(.black)
                     .clipShape(.rect(cornerRadius: 30))
                      
@@ -54,6 +55,4 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}
+

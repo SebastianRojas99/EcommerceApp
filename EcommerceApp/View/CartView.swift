@@ -35,8 +35,19 @@ struct CartView: View {
                     VStack(spacing:20){
                         ForEach(cartManager.products){item in
                             CartToCard(product: item)
+                            //MARK: FIX THAT! BOGUS
+                                .swipeActions{
+                                    Button(role:.destructive){
+                                        withAnimation{
+                                            cartManager.removeToCart(product: item)
+                                        }
+                                        
+                                    }label: {
+                                        Image(systemName: "trash")
+                                    }
+                                
+                                }
                                 .environment(cartManager)
-                            
                         }
                         
                     }.padding(.horizontal)
@@ -45,7 +56,7 @@ struct CartView: View {
                         HStack{
                             Text("Delivery amount")
                             Spacer()
-                            Text("$4.00")
+                            Text("Free")
                                 .font(.system(size: 24,weight: .semibold))
                         }
                         

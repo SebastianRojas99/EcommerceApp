@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct EcommerceAppApp: App {
-    
+    @State var cartManager = CartvViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(cartManager)
+                .background(.white)
         }
     }
 }

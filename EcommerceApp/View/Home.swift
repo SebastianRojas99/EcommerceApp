@@ -52,6 +52,7 @@ struct Home: View {
                 if !selectedCategory.isEmpty {
                   NavigationLink {
                       CardSmallProduct(selectedCategory: $selectedCategory)
+                          .environment(cart)
                   } label: {
                     HStack {
                       Image(systemName: "arrow.right")
