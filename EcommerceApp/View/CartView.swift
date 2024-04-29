@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartView: View {
      //@State var product = ProductViewModel(productList: productList)
-    @Environment(CartvViewModel.self) private var cart
+    @Environment(CartvViewModel.self) private var cartManager
     var body: some View {
         
         NavigationStack{
@@ -22,7 +22,7 @@ struct CartView: View {
                         Button{
                             
                         }label: {
-                            Text("\(cart.products.count)")
+                            Text("\(cartManager.products.count)")
                                 .padding()
                                 .frame(width: 70,height: 90)
                                 .background(.green.opacity(0.4))
@@ -33,8 +33,9 @@ struct CartView: View {
                         
                     }
                     VStack(spacing:20){
-                        ForEach(productList){item in
+                        ForEach(cartManager.products){item in
                             CartToCard(product: item)
+                                .environment(cartManager)
                             
                         }
                         
@@ -52,7 +53,7 @@ struct CartView: View {
                         Divider()
                         Text("Total amount")
                             .font(.system(size: 24,weight: .semibold))
-                        Text("$\(cart.total)")
+                        Text("$\(cartManager.total)")
                             .font(.system(size: 36,weight: .bold))
                     }
                     .padding(30)

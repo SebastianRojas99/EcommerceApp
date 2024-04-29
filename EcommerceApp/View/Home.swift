@@ -25,7 +25,7 @@ struct Home: View {
             Spacer()
               NavigationLink{
                   CartView()
-                      .environment(CartvViewModel())
+                      .environment(cart)
               }label: {
                   HStack{
                       Image(systemName: "cart")
