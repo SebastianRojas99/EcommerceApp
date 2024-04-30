@@ -11,7 +11,8 @@ struct Home: View {
   @State private var categoryViewModel = CategoryViewModel(categoryList: categoryList)
   @State private var productViewModel = ProductViewModel(productList: productList)
   @State private var selectedCategory = ""
-  @Environment(CartvViewModel.self) private var cartManager
+  @Environment(CartvViewModel.self) private var cartManager //this works
+  
   
   var body: some View {
     NavigationStack {
@@ -26,6 +27,7 @@ struct Home: View {
               NavigationLink{
                   CartView()
                       .environment(cartManager)
+                      
               }label: {
                   HStack{
                       Image(systemName: "cart")
@@ -44,6 +46,7 @@ struct Home: View {
 
           // Categories
           CategoryListView(selectedCategory: $selectedCategory)
+                .environment(cartManager)
 
           // Use NavigationLink for category selection
             HStack{
@@ -68,6 +71,8 @@ struct Home: View {
 
           // Product list (unchanged)
           ProductListView(selectedCategory: $selectedCategory)
+                .environment(cartManager)
+                
         }
       }
     }.background(.white)

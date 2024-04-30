@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartToCard: View {
     @State var product:ProductModel
-    
+    @Environment(CartvViewModel.self) private var cartManager
     var body: some View {
         HStack{
             Image(product.image)

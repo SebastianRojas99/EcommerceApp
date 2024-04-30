@@ -34,9 +34,9 @@ struct CartView: View {
                         
                     }
                     VStack(spacing:20){
-                        ForEach(cartManager.products){item in
+                        ForEach(cartManager.products,id:\.name){item in
                             CartToCard(product: item)
-                            //MARK: FIX THAT! BOGUS
+                                .environment(cartManager)
                                 .swipeActions{
                                     Button(role:.destructive){
                                         withAnimation{
@@ -48,10 +48,13 @@ struct CartView: View {
                                     }
                                 
                                 }
-                                .environment(cartManager)
+                            //MARK: FIX THAT! BOGUS
+                                
+                                
                         }
                         
                     }.padding(.horizontal)
+                    
                     
                     VStack(alignment:.leading){
                         HStack{
