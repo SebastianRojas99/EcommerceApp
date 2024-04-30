@@ -20,9 +20,11 @@ class CartvViewModel{
         products.append(product)
         total += product.price
     }
-    func removeToCart(product:ProductModel){
-        products = products.filter{$0.id != product.id}
-        total -= product.price
+    func removeToCart(product: ProductModel) {
+        if let index = products.firstIndex(where: { $0.id == product.id }) {
+            total -= products[index].price
+            products.remove(at: index)
+        }
     }
     func clearAllCart(){
         products = []

@@ -33,27 +33,24 @@ struct CartView: View {
                         
                         
                     }
-                    VStack(spacing:20){
-                        ForEach(cartManager.products,id:\.name){item in
-                            CartToCard(product: item)
-                                .environment(cartManager)
-                                .swipeActions{
-                                    Button(role:.destructive){
-                                        withAnimation{
-                                            cartManager.removeToCart(product: item)
-                                        }
-                                        
-                                    }label: {
-                                        Image(systemName: "trash")
-                                    }
-                                
+                    
+                        VStack(spacing:20){
+                            ForEach(cartManager.products,id:\.id){item in
+                                CartToCard(product: item)
+                                Button(role:.destructive){
+                                    cartManager.removeToCart(product: item)
+                                }label: {
+                                    Image(systemName: "trash")
                                 }
-                            //MARK: FIX THAT! BOGUS
                                 
                                 
-                        }
-                        
-                    }.padding(.horizontal)
+                                //MARK: FIX THAT! BOGUS
+                                    
+                                    
+                            }
+                            
+                        }.padding(.horizontal)
+
                     
                     
                     VStack(alignment:.leading){
