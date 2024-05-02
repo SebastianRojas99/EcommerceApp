@@ -16,5 +16,3 @@ struct User:Identifiable{
 }
 
 
-let exampleUser:User = User(username: "seba", password: "123")
-

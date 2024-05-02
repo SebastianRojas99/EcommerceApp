@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct UserView: View {
+    @State var userViewModel = UserViewModel()
+    @State var user:String
+    @State var password:String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TextField("Username", text: $user)
+        SecureField("Password", text: $password)
+        Button{
+            let validated = userViewModel.validation(_username: user, _password: password)
+            if validated{
+                NavigationLink{
+                    Home()
+                }label: {
+                    Text("Enter")
+                }
+            }
+        }label: {
+            Image(systemName: "arrow")
+        }
     }
 }
 
 #Preview {
-    UserView()
+    UserView(user: "seba", password: "123")
 }
+

@@ -12,19 +12,17 @@ import Observation
 @Observable
 class UserViewModel{
     
-    let exampleUser:User
+    let username:String = "seba"
+    let password:String = "123"
     
-    init(exampleUser: User) {
-        self.exampleUser = exampleUser
-    }
     
-    func validation(username:String,password:String)->Bool{
-        if username == exampleUser.username{
-            if password == exampleUser.password{
+    
+    func validation(_username:String,_password:String)->Bool{
+        if _username == username{
+            if _password == password{
                 return true
             }
         }
         return false
     }
-    
 }
