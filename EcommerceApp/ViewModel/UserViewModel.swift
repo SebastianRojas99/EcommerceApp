@@ -12,9 +12,10 @@ import Observation
 @Observable
 class UserViewModel{
     
-    let username:String = "seba"
-    let password:String = "123"
-    
+    var username:String = "seba"
+    var password:String = "123"
+    var hasError = false
+    var errorMessage: String? = nil
     
     
     func validation(_username:String,_password:String)->Bool{

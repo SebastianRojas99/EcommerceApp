@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack{
-            
+    
             VStack(alignment:.leading) {
                 Home()
                     .environment(cartManager)
