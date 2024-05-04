@@ -47,7 +47,7 @@ struct ContentView: View {
                         .padding(30)
                         .frame(maxWidth:.infinity)
                         .frame(height: 80)
-                        .background(.black)
+                        .background(.black.opacity(0.5))
                         .clipShape(.rect(cornerRadius: 30))
                          
                         
