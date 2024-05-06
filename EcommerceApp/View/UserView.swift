@@ -19,20 +19,7 @@ struct UserView: View {
 
             SecureField("Password", text: $password)
 
-            Button {
-                if userViewModel.validation(_username: username, _password: password){ // Use validate function
-                    NavigationLink {
-                        Home()
-                    } label: {
-                        Text("Enter")
-                    }
-                } else {
-                    // Handle validation failure (show alert, display error message)
-                    print("Validation failed: Invalid username or password")
-                }
-            } label: {
-                Image(systemName: "arrow.right") // Use more descriptive icon
-            }
+            
         }
         .alert(isPresented: $userViewModel.hasError) { // Bind alert presentation to view model
             Alert(title: Text("Login Error"),
