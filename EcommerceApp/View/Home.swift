@@ -43,10 +43,12 @@ struct Home: View {
               .overlay(RoundedRectangle(cornerRadius: 200).stroke(.green, lineWidth: 270).opacity(0.4))
           }
           .padding(12)
-
+            
           // Categories
           CategoryListView(selectedCategory: $selectedCategory)
                 .environment(cartManager)
+            
+            
 
           // Use NavigationLink for category selection
             HStack{
@@ -72,6 +74,7 @@ struct Home: View {
           // Product list (unchanged)
           ProductListView(selectedCategory: $selectedCategory)
                 .environment(cartManager)
+                .padding(.top,30)
                 
         }
       }
