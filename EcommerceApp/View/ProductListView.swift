@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct ProductListView: View {
+  @State  var product:ProductModel!
   @State var viewModel = ProductViewModel(productList: productList)
   @Binding var selectedCategory: String
   @Environment(CartvViewModel.self) private var cart
@@ -38,7 +39,6 @@ struct ProductListView: View {
                                             .clipShape(Capsule())
                                         
                                         Spacer()
-                                        
                                         
                                         
                                         HStack {
@@ -82,6 +82,12 @@ struct ProductListView: View {
                             
                             
                         }.clipped()
+                            .onDrag({
+                                self.product = item
+                                return NSItemProvider()
+                            })
+                        
+                            
                     }
                 }
             }.padding(.horizontal)
