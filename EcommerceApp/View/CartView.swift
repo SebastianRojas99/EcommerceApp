@@ -34,6 +34,7 @@ struct CartView: View {
                         
                     }
                     
+                    //MARK: FIX THAT! BOGUS
                         VStack(spacing:20){
                             ForEach(cartManager.products,id:\.id){item in
                                 CartToCard(product: item)
@@ -44,7 +45,7 @@ struct CartView: View {
                                 }
                                 
                                 
-                                //MARK: FIX THAT! BOGUS
+                                
                                     
                                     
                             }
