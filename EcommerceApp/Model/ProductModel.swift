@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductModel:Identifiable,Hashable{
+struct ProductModel:Codable,Identifiable,Hashable{
     var id: UUID = .init()
     var name:String
     var description:String

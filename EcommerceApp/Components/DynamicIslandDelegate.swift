@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import ActivityKit
 
 final class DynamicIslandDelegate{
-    static func ProductQuantity(){
-        
+     func GetProductQuantity(quantity:[ProductModel]) throws -> Int{
+        guard ActivityAuthorizationInfo().areActivitiesEnabled else {return 0}
     }
 }
