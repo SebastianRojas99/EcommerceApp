@@ -7,6 +7,8 @@
 
 import Foundation
 
-struct DynamicIslandDelegate{
-    
+final class DynamicIslandDelegate{
+    static func ProductQuantity(){
+        
+    }
 }
