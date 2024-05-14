@@ -28,6 +28,7 @@ struct Home: View {
                   CartView()
                       .environment(cartManager)
                       
+                      
               }label: {
                   HStack{
                       Image(systemName: "cart")

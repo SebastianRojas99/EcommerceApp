@@ -96,6 +96,7 @@ struct CartView: View {
             .padding()
             .background(.white)
             .foregroundStyle(.black)
+            //.onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: <#T##ProductModel#>, products: <#T##[ProductModel]#>))
     }
 }
 
