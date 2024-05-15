@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CartView: View {
-     //@State var product = ProductViewModel(productList: productList)
+    //@State var product:ProductModel
     @Environment(CartvViewModel.self) private var cartManager
     @State private var show:Bool = false
     var body: some View {
@@ -38,6 +38,7 @@ struct CartView: View {
                         VStack(spacing:20){
                             ForEach(cartManager.products,id:\.id){item in
                                 CartToCard(product: item)
+                                    
                                 Button(role:.destructive){
                                     cartManager.removeToCart(product: item)
                                 }label: {
@@ -51,6 +52,7 @@ struct CartView: View {
                             }
                             
                         }.padding(.horizontal)
+                        
 
                     
                     
@@ -91,12 +93,13 @@ struct CartView: View {
                         
                     
                 }
+                
             }
         }.navigationBarBackButtonHidden()
             .padding()
             .background(.white)
             .foregroundStyle(.black)
-            //.onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: <#T##ProductModel#>, products: <#T##[ProductModel]#>))
+            
     }
 }
 

@@ -8,9 +8,10 @@ import SwiftUI
 
 struct ProductListView: View {
   @State  var product:ProductModel!
+    @State var cartInProduct = myCart
   @State var viewModel = ProductViewModel(productList: productList)
   @Binding var selectedCategory: String
-  @Environment(CartvViewModel.self) private var cart
+  @Environment(CartvViewModel.self) private var cartManager
    let productQuantity = 3
     var body: some View {
         Spacer()
@@ -45,7 +46,7 @@ struct ProductListView: View {
                                             Text("$\(item.price)").padding()
                                             Spacer()
                                             Button {
-                                                cart.addToCart(product:item)
+                                                cartManager.addToCart(product:item)
                                                 print("Adding item to cart...")
                                             } label: {
                                                 Image(systemName: "cart")
@@ -86,6 +87,7 @@ struct ProductListView: View {
                                 self.product = item
                                 return NSItemProvider()
                             })
+                            .onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: item, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
                         
                             
                     }
