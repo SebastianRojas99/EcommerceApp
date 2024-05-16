@@ -28,7 +28,7 @@ struct CartToCard: View {
             Spacer()
             Text("\(product.price)")
                 .padding()
-                .background(.green.opacity(0.4))
+                .background(.green.opacity(0.7))
                 .clipShape(Capsule())
             
         }
