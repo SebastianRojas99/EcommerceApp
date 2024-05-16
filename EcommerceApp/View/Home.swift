@@ -20,7 +20,7 @@ struct Home: View {
         VStack {
           // Header
           HStack {
-            Text("**SHub** - shop all!")
+            Text("**SneakerHub** Place")
               .font(.system(size: 32))
               .padding(.trailing)
             Spacer()
