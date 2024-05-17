@@ -12,7 +12,7 @@ import SwiftUI
 struct DropViewDelegate:DropDelegate{
     
     // Producto destino de la operación de arrastrar y soltar
-    let destinationItem:ProductModel
+    let destinationItem:ProductModel?
     // Lista de productos, es una variable de enlace (Binding), lo que significa que refleja los cambios en la vista
     @Binding var products:[ProductModel]
     // Producto que se está arrastrando, también es una variable de enlace
@@ -21,7 +21,7 @@ struct DropViewDelegate:DropDelegate{
     var cartManager: CartvViewModel
 
     // Inicializador personalizado para la estructura DropViewDelegate
-    init(destinationItem: ProductModel, products: Binding<[ProductModel]>, draggedItem: Binding<ProductModel?>, cartManager: CartvViewModel) {
+    init(destinationItem: ProductModel?, products: Binding<[ProductModel]>, draggedItem: Binding<ProductModel?>, cartManager: CartvViewModel) {
         // Asignación de los parámetros a las propiedades de la estructura
         self.destinationItem = destinationItem
         _products = products
@@ -57,7 +57,7 @@ struct DropViewDelegate:DropDelegate{
             // Si el producto arrastrado está en la lista de productos
             if let fromIndex = fromIndex {
                 // Obtiene el índice del producto destino en el carrito
-                let toIndex = myCart.firstIndex(of: destinationItem)
+                let toIndex = myCart.firstIndex(of: destinationItem!)
                 // Si el producto destino está en el carrito y los índices son diferentes
                 if let toIndex = toIndex, fromIndex != toIndex {
                     // Realiza una animación para mover el producto arrastrado a la posición del producto destino en la lista de productos

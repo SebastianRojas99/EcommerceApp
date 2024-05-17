@@ -12,6 +12,8 @@ struct Home: View {
   @State private var productViewModel = ProductViewModel(productList: productList)
   @State private var selectedCategory = ""
   @Environment(CartvViewModel.self) private var cartManager //this works
+  @State var product: ProductModel!
+  @State var cartInProduct = myCart
   
   
   var body: some View {
@@ -33,8 +35,15 @@ struct Home: View {
                   HStack{
                       Image(systemName: "cart")
                           .imageScale(.large)
-                          .foregroundStyle(.secondary) 
-                  }
+                          .foregroundStyle(.secondary)
+                          
+                      
+                  }.onDrag {
+                      self.product = product
+                      return NSItemProvider()
+                                }
+                  .onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: product, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
+                  
               }
             Image(systemName: "line.3.horizontal")
               .imageScale(.large)
