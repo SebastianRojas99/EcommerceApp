@@ -10,11 +10,12 @@ import SwiftUI
 @main
 struct EcommerceAppApp: App {
     @State var cartManager = CartvViewModel()
-    
+    @State var productManager = ProductViewModel(productList: productList)
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(cartManager)
+                .environment(productManager)
                 .background(ignoresSafeAreaEdges: .all)
                 
         }

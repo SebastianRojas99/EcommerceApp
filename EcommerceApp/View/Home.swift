@@ -8,10 +8,10 @@ import SwiftUI
 
 struct Home: View {
     @State private var categoryViewModel = CategoryViewModel(categoryList: categoryList)
-    @State private var productViewModel = ProductViewModel(productList: productList)
+    @Environment(ProductViewModel.self) private var productManager
     @State private var selectedCategory = ""
     @Environment(CartvViewModel.self) private var cartManager
-    @State private var product: ProductModel!
+    @State var product: ProductModel!
     @State private var cartInProduct = myCart
     
     var body: some View {
@@ -31,8 +31,8 @@ struct Home: View {
                                 Image(systemName: "cart")
                                     .imageScale(.large)
                                     .foregroundStyle(.secondary)
-                            }
-                            .onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: nil, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
+                            }.onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: productManager.draggedProduct, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
+                            
                         }
                         Image(systemName: "line.3.horizontal")
                             .imageScale(.large)

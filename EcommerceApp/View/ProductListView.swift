@@ -7,9 +7,9 @@
 
 import SwiftUI
 struct ProductListView: View {
-    @State private var product: ProductModel!
+    @State var product: ProductModel!
     @State private var cartInProduct = myCart
-    @State private var viewModel = ProductViewModel(productList: productList)
+    @Environment(ProductViewModel.self) private var productManager
     @Binding var selectedCategory: String
     @Environment(CartvViewModel.self) private var cartManager
     let productQuantity = 3
@@ -17,7 +17,7 @@ struct ProductListView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .center, spacing: 18) {
-                ForEach(viewModel.productList.prefix(productQuantity)) { item in
+                ForEach(productManager.productList.prefix(productQuantity)) { item in
                     if selectedCategory == "All" || item.category.title == selectedCategory {
                         ZStack {
                             ZStack {
@@ -75,9 +75,10 @@ struct ProductListView: View {
                         .clipped()
                         .onDrag {
                             self.product = item
-                            return NSItemProvider(object: "\(item.id.uuidString)" as NSString)
+                            productManager.draggedProduct = item
+                            return NSItemProvider()
                         }
-                        .onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: item, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
+                        .onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: productManager.draggedProduct, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
                     }
                 }
             }
