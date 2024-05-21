@@ -34,36 +34,37 @@ struct Home: View {
                             }.onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: productManager.draggedProduct, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
                             
                         }
-                      
-                    
-                    CategoryListView(selectedCategory: $selectedCategory)
-                        .environment(cartManager)
-                    
-                    HStack {
-                        Text("Explore **\(selectedCategory)** shoes").font(.system(size: 24))
-                        Spacer()
-                        if !selectedCategory.isEmpty {
-                            NavigationLink {
-                                CardSmallProduct(selectedCategory: $selectedCategory)
-                                    .environment(cartManager)
-                            } label: {
-                                HStack {
-                                    Image(systemName: "arrow.right")
-                                        .imageScale(.large)
+                        
+                        
+                        CategoryListView(selectedCategory: $selectedCategory)
+                            .environment(cartManager)
+                        
+                        HStack {
+                            Text("Explore **\(selectedCategory)** shoes").font(.system(size: 24))
+                            Spacer()
+                            if !selectedCategory.isEmpty {
+                                NavigationLink {
+                                    CardSmallProduct(selectedCategory: $selectedCategory)
+                                        .environment(cartManager)
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "arrow.right")
+                                            .imageScale(.large)
+                                    }
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 6)
                                 }
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 6)
                             }
                         }
+                        Spacer()
+                        
+                        ProductListView(selectedCategory: $selectedCategory)
+                            .environment(cartManager)
+                            .padding(.top, 30)
                     }
-                    Spacer()
-
-                    ProductListView(selectedCategory: $selectedCategory)
-                        .environment(cartManager)
-                        .padding(.top, 30)
                 }
             }
+            .background(Color.white)
         }
-        .background(Color.white)
     }
 }
