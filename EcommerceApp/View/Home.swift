@@ -34,14 +34,7 @@ struct Home: View {
                             }.onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: productManager.draggedProduct, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
                             
                         }
-                        Image(systemName: "line.3.horizontal")
-                            .imageScale(.large)
-                            .font(.system(size: 25))
-                            .padding()
-                            .frame(width: 70, height: 90)
-                            .overlay(RoundedRectangle(cornerRadius: 200).stroke(Color.green, lineWidth: 270).opacity(0.4))
-                    }
-                    .padding(12)
+                      
                     
                     CategoryListView(selectedCategory: $selectedCategory)
                         .environment(cartManager)
