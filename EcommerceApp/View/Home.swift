@@ -30,10 +30,17 @@ struct Home: View {
                             HStack {
                                 Image(systemName: "cart")
                                     .imageScale(.large)
-                                    .foregroundStyle(.secondary)
+                                    .font(.system(size: 25))
+                                    .padding()
+                                    .frame(width: 70, height: 90)
+                                    .overlay(RoundedRectangle(cornerRadius: 200).stroke(Color.green, lineWidth: 270).opacity(0.4))
                             }.onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: productManager.draggedProduct, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
                             
                         }
+                        
+                                                    
+                                            }
+                                            .padding(12)
                         
                         
                         CategoryListView(selectedCategory: $selectedCategory)
@@ -67,4 +74,3 @@ struct Home: View {
             .background(Color.white)
         }
     }
-}
