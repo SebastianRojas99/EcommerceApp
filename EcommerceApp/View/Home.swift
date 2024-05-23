@@ -57,6 +57,7 @@ struct Home: View {
                                     HStack {
                                         Image(systemName: "arrow.right")
                                             .imageScale(.large)
+                                            .foregroundStyle(.gray)
                                     }
                                     .padding(.horizontal, 12)
                                     .padding(.vertical, 6)
