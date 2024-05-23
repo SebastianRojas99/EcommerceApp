@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var cartManager = CartvViewModel()
+    @State var productManager = ProductViewModel(productList: productList)
     
     var body: some View {
         NavigationStack{
@@ -20,6 +21,7 @@ struct ContentView: View {
                 NavigationLink{
                     CartView()
                         .environment(cartManager)
+                        .environment(productManager)
                 }label: {
                     if cartManager.products.count > 0{
                         HStack{

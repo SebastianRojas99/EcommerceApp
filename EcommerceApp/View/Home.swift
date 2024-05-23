@@ -19,7 +19,7 @@ struct Home: View {
             ScrollView {
                 VStack {
                     HStack {
-                        Text("**SneakerHub** Place")
+                        Text("**SneakerHub** Place 👟")
                             .font(.system(size: 32))
                             .padding(.trailing)
                         Spacer()
