@@ -68,7 +68,7 @@ struct Home: View {
                         
                         ProductListView(selectedCategory: $selectedCategory)
                             .environment(cartManager)
-                            .padding(.top, 30)
+                            .padding(.top, 40)
                     }
                 }
             }

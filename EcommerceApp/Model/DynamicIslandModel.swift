@@ -8,6 +8,8 @@
 import Foundation
 import ActivityKit
 
+//MARK: SEE THAT
+
 struct DynamicIslandModel: ActivityAttributes{
     public struct ContentState:Codable, Hashable{
         var quantity:[ProductModel]
