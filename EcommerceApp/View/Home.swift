@@ -37,10 +37,8 @@ struct Home: View {
                             }.onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: productManager.draggedProduct, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
                             
                         }
-                        
-                                                    
-                                            }
-                                            .padding(12)
+                            }
+                            .padding(12)
                         
                         
                         CategoryListView(selectedCategory: $selectedCategory)

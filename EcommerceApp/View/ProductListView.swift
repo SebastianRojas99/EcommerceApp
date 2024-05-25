@@ -78,7 +78,7 @@ struct ProductListView: View {
                             productManager.draggedProduct = item
                             return NSItemProvider()
                         }
-                        .onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: productManager.draggedProduct, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
+                        
                     }
                 }
             }
