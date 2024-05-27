@@ -19,36 +19,28 @@ struct CartView: View {
                     HStack{
                         Text("Cart").font(.largeTitle)
                         Spacer()
-                        //buttons
-                        Button{
-                            
-                        }label: {
                             Text("\(cartManager.products.count)")
                                 .padding()
                                 .frame(width: 70,height: 90)
                                 .background(.green.opacity(0.4))
                                 .clipShape(Capsule())
-                        }
                         DismissButton()
-                        
-                        
                     }
                     
                     //MARK: FIX THAT! BOGUS
                         VStack(spacing:20){
-                            ForEach(cartManager.products,id:\.id){item in
-                                CartToCard(product: item)
-                                    
-                                Button(role:.destructive){
-                                    cartManager.removeToCart(product: item)
-                                }label: {
-                                    Image(systemName: "trash")
-                                }
-                                
-                                
-                                
-                                    
-                                    
+                                ForEach(cartManager.products,id:\.id){item in
+                                    if cartManager.products.isEmpty{
+                                        ContentUnavailableView("Carrito vacio..", systemImage: "cart")
+                                    }else{
+                                        CartToCard(product: item)
+                                        
+                                        Button(role:.destructive){
+                                            cartManager.removeToCart(product: item)
+                                        }label: {
+                                            Image(systemName: "trash")
+                                        }
+                                    }
                             }
                             
                         }.padding(.horizontal)
