@@ -8,10 +8,8 @@ import SwiftUI
 
 struct Home: View {
     @State private var categoryViewModel = CategoryViewModel(categoryList: categoryList)
-    @Environment(ProductViewModel.self) private var productManager
     @State private var selectedCategory = ""
     @Environment(CartvViewModel.self) private var cartManager
-    @State var product: ProductModel!
     @State private var cartInProduct = myCart
     
     var body: some View {
@@ -34,7 +32,7 @@ struct Home: View {
                                     .padding()
                                     .frame(width: 70, height: 90)
                                     .overlay(RoundedRectangle(cornerRadius: 200).stroke(Color.green, lineWidth: 270).opacity(0.4))
-                            }.onDrop(of: [.text], delegate: DropViewDelegate(destinationItem: productManager.draggedProduct, products: $cartInProduct, draggedItem: $product, cartManager: cartManager))
+                            }
                             
                         }
                             }
@@ -43,7 +41,7 @@ struct Home: View {
                         
                         CategoryListView(selectedCategory: $selectedCategory)
                             .environment(cartManager)
-                            .environment(productManager)
+                            
                         
                         HStack {
                             Text("Explore **\(selectedCategory)** shoes").font(.system(size: 24))
