@@ -14,25 +14,29 @@ struct LoginView: View {
     @State private var isActive: Bool = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack{
             VStack(alignment:.center){
                 TextField("Username", text: $username)
                     .autocapitalization(.none) // Prevent automatic capitalization for usernames
                 SecureField("Password", text: $password)
-                Button(action: {
-                    if userViewModel.validation(_username: username, _password: password) {
-                        isActive = true
+                
+                VStack{
+                    Button{
+                        if userViewModel.validation(_username: username, _password: password){
+                            isActive = true
+                        }
+                    }label: {
+                        Text("ingresar")
                     }
-                }) {
-                    Text("ingresar")
+                }}.navigationDestination(isPresented: $isActive, destination:{
+                    ContentView().navigationBarBackButtonHidden(true)
+                })
+                
+
+               
                 }
-                NavigationLink(destination: ContentView(), isActive: $isActive) {
-                    EmptyView()
-                }
-            }
         }
     }
-}
 
 #Preview {
     LoginView()
