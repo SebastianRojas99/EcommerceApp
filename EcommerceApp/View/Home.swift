@@ -43,6 +43,7 @@ struct Home: View {
                         
                         CategoryListView(selectedCategory: $selectedCategory)
                             .environment(cartManager)
+                            .environment(productManager)
                         
                         HStack {
                             Text("Explore **\(selectedCategory)** shoes").font(.system(size: 24))

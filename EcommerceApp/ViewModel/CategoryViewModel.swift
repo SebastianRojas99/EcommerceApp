@@ -30,7 +30,7 @@ extension CategoryModel{
             return .red
             
         case "StreetWear":
-            return .purple
+            return .indigo
             
         case "Running":
             return .blue
