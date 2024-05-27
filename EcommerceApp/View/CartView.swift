@@ -28,23 +28,25 @@ struct CartView: View {
                     }
                     
                     //MARK: FIX THAT! BOGUS
+                    if cartManager.products.isEmpty{
+                        ContentUnavailableView("Carrito vacio...", systemImage: "cart.fill.badge.questionmark")
+                    }else{
                         VStack(spacing:20){
-                                ForEach(cartManager.products,id:\.id){item in
-                                    if cartManager.products.isEmpty{
-                                        ContentUnavailableView("Carrito vacio..", systemImage: "cart")
-                                    }else{
-                                        CartToCard(product: item)
-                                        
-                                        Button(role:.destructive){
-                                            cartManager.removeToCart(product: item)
-                                        }label: {
-                                            Image(systemName: "trash")
-                                        }
-                                    }
+                            ForEach(cartManager.products,id:\.id){item in
+                                
+                                
+                                CartToCard(product: item)
+                                
+                                Button(role:.destructive){
+                                    cartManager.removeToCart(product: item)
+                                }label: {
+                                    Image(systemName: "trash")
+                                }
                             }
                             
+                            
                         }.padding(.horizontal)
-                        
+                    }
 
                     
                     
