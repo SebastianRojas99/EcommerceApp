@@ -14,7 +14,6 @@ struct LoginView: View {
     @State private var isActive: Bool = false
     var body: some View {
         NavigationStack{
-            
             VStack{
                 Text("Sneaker Hub") // Texto
                     .foregroundStyle(.gray)

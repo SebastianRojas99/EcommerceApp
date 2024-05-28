@@ -11,19 +11,16 @@ import Observation
 
 @Observable
 class UserViewModel{
-    
-    var username:String = "seba"
-    var password:String = "123"
+    var username:String?
+    var password:String?
     var hasError = false
     var errorMessage: String? = nil
     
     
     func validation(_username:String,_password:String)->Bool{
-        if _username == username{
-            if _password == password{
+            if let storedPassword = testFlightCredentials[_username], storedPassword == _password {
                 return true
             }
+            return false
         }
-        return false
-    }
 }
