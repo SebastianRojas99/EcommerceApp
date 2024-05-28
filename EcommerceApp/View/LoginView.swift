@@ -93,11 +93,11 @@ struct LoginView: View {
                         }
                     }label: {
                         HStack{
-                            Text("Go to buy!")
+                            Text("Go to buy!").bold()
                             Text("")
-                            Image(systemName: "arrow.right").imageScale(.large)
+                            Image(systemName: "arrow.right").imageScale(.large).bold()
                         }
-                        .font(.title3)
+                        .font(.title2)
                         .padding(22)
                         .frame(maxWidth: .infinity)
                         .background(.royal)
