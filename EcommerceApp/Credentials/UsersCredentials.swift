@@ -9,5 +9,5 @@ import Foundation
 
 var testFlightCredentials: [String: String] = [
     "seba": "123",
-    "juanma": "123",
+    "apple-man": "123",
 ]
