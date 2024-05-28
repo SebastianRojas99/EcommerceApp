@@ -18,6 +18,7 @@ struct LoginView: View {
             
             VStack{
                 Text("Sneaker Hub") // Texto
+                    .foregroundStyle(.gray)
                     .font(.title2)
                     .bold()
                     .frame(width: 150, height: 150) // Tamaño del marco
