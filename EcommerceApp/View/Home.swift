@@ -17,7 +17,7 @@ struct Home: View {
             ScrollView {
                 VStack {
                     HStack {
-                        Text("**SneakerHub** Place 👟")
+                        Text("**Sneaker Hub** Place 👟")
                             .font(.system(size: 32))
                             .padding(.trailing)
                         Spacer()
@@ -29,14 +29,32 @@ struct Home: View {
                                 Image(systemName: "cart")
                                     .imageScale(.large)
                                     .font(.system(size: 25))
-                                    .padding()
-                                    .frame(width: 70, height: 90)
-                                    .overlay(RoundedRectangle(cornerRadius: 200).stroke(Color.green, lineWidth: 270).opacity(0.4))
+                                    .padding(.horizontal)
+                                    .frame(width: 45, height: 80)
+                                    .overlay(RoundedRectangle(cornerRadius: 120).stroke(Color.green, lineWidth: 270).opacity(0.3))
+                                
                             }
                             
                         }
+                        HStack{
+                            NavigationLink {
+                                LoginView().navigationBarBackButtonHidden(true)
+                            } label: {
+                                HStack {
+                                    Image(systemName: "person.slash")
+                                        .imageScale(.large)
+                                        .font(.system(size: 25))
+                                        .padding()
+                                        .frame(width: 45, height: 80)
+                                    
+                                }
+                                
+                            }
+                        }
                             }
                             .padding(12)
+                    
+                    
                         
                         
                         CategoryListView(selectedCategory: $selectedCategory)

@@ -117,7 +117,7 @@ struct LoginView: View {
                     destination:{
                     ContentView()
                             .navigationBarBackButtonHidden(true)
-                })}
+                    })}.background(.white)
         
         }
     
