@@ -12,10 +12,11 @@ struct EcommerceAppApp: App {
     @State var cartManager = CartvViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
                 .environment(cartManager)
                 .background(ignoresSafeAreaEdges: .all)
                 
         }
     }
 }
+

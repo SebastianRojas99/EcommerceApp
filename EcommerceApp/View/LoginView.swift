@@ -12,7 +12,6 @@ struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var isActive: Bool = false
-
     var body: some View {
         NavigationStack{
             
