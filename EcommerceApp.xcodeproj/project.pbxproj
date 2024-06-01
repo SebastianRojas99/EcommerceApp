@@ -11,7 +11,6 @@
 		961132012BDAE72B005BC821 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961132002BDAE72B005BC821 /* CartView.swift */; };
 		961132032BDAFAA5005BC821 /* CartToCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961132022BDAFAA5005BC821 /* CartToCard.swift */; };
 		961132062BDB027D005BC821 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961132052BDB027D005BC821 /* DismissButton.swift */; };
-		961F244D2BEBC39C0077B07A /* DropViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F244C2BEBC39C0077B07A /* DropViewDelegate.swift */; };
 		962208DE2BF05AE2008DA3EC /* DynamicIslandDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962208DD2BF05AE2008DA3EC /* DynamicIslandDelegate.swift */; };
 		963CF0F22C08190A00DB4ADB /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963CF0F12C08190A00DB4ADB /* RegisterView.swift */; };
 		9646970C2C050D9E0077A139 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646970B2C050D9E0077A139 /* LoginView.swift */; };
@@ -40,7 +39,6 @@
 		961132002BDAE72B005BC821 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		961132022BDAFAA5005BC821 /* CartToCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartToCard.swift; sourceTree = "<group>"; };
 		961132052BDB027D005BC821 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
-		961F244C2BEBC39C0077B07A /* DropViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropViewDelegate.swift; sourceTree = "<group>"; };
 		962208DD2BF05AE2008DA3EC /* DynamicIslandDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIslandDelegate.swift; sourceTree = "<group>"; };
 		963CF0F12C08190A00DB4ADB /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		9646970B2C050D9E0077A139 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				961132052BDB027D005BC821 /* DismissButton.swift */,
-				961F244C2BEBC39C0077B07A /* DropViewDelegate.swift */,
 				962208DD2BF05AE2008DA3EC /* DynamicIslandDelegate.swift */,
 			);
 			path = Components;
@@ -252,7 +249,6 @@
 				96EBCB272BD019A500F0DC7B /* CategoryModel.swift in Sources */,
 				96904BF42BD35055000F1CC1 /* ProductViewModel.swift in Sources */,
 				9646970C2C050D9E0077A139 /* LoginView.swift in Sources */,
-				961F244D2BEBC39C0077B07A /* DropViewDelegate.swift in Sources */,
 				969EF52B2BE30BDC00C229C6 /* UserViewModel.swift in Sources */,
 				969EF5292BE30A3100C229C6 /* User.swift in Sources */,
 				961132012BDAE72B005BC821 /* CartView.swift in Sources */,
