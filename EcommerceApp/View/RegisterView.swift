@@ -25,10 +25,6 @@ struct RegisterView: View {
                     .overlay(Circle().stroke(Color.green, lineWidth: 2)) // Borde negro
                     .shadow(color: .royal, radius: 10, x: 0, y: 0) // Sombra gris
             }
-            
-            
-            
-            
             VStack(alignment:.center){
                 
                 VStack(alignment:.leading){
@@ -114,48 +110,48 @@ struct RegisterView: View {
                     .padding()
                     .background(.green.opacity(0.2))
                     .clipShape(.rect(cornerRadius: 30))
+                HStack{
+                    Spacer()
+                    Button{
+                        
+                    }label: {
+                        Text("Forgot the password?")
+                            .foregroundStyle(.gray)
+                    }
+                }.padding()
                 
+                VStack{
+                    
+                    Button{
+                        if userViewModel.validation(_username: username, _password: password){
+                            isActive = true
+                        }
+                    }label: {
+                        HStack{
+                            Text("Go to buy!").bold()
+                            Text("")
+                            Image(systemName: "arrow.right").imageScale(.large).bold()
+                        }
+                        .font(.title2)
+                        .padding(22)
+                        .frame(maxWidth: .infinity)
+                        .background(.royal)
+                        .clipShape(.rect(cornerRadius: 40))
+                        .padding()
+                        .foregroundStyle(.white)
+                        
+                        
+                    }
                 
             }.padding()
             
-            HStack{
-                Spacer()
-                Button{
-                    
-                }label: {
-                    Text("Forgot the password?")
-                        .foregroundStyle(.gray)
-                }
-            }.padding()
             
-            VStack{
-                
-                Button{
-                    if userViewModel.validation(_username: username, _password: password){
-                        isActive = true
-                    }
-                }label: {
-                    HStack{
-                        Text("Go to buy!").bold()
-                        Text("")
-                        Image(systemName: "arrow.right").imageScale(.large).bold()
-                    }
-                    .font(.title2)
-                    .padding(22)
-                    .frame(maxWidth: .infinity)
-                    .background(.royal)
-                    .clipShape(.rect(cornerRadius: 40))
-                    .padding()
-                    .foregroundStyle(.white)
-                    
-                    
-                }
             }.navigationDestination(
                     isPresented: $isActive,
                     destination:{
                     ContentView()
                             .navigationBarBackButtonHidden(true)
-                    })}.background(.white)
+                    })}
         
         }
     

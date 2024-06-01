@@ -14,22 +14,24 @@ struct LoginView: View {
     @State private var isActive: Bool = false
     var body: some View {
         NavigationStack{
-            VStack{
-                Text("Sneaker Hub") // Texto
-                    .foregroundStyle(.gray)
-                    .font(.title2)
-                    .bold()
-                    .frame(width: 150, height: 150) // Tamaño del marco
-                    .background(Color.white) // Fondo blanco
-                    .clipShape(Circle()) // Recortar en forma de círculo
-                    .overlay(Circle().stroke(Color.green, lineWidth: 2)) // Borde negro
-                    .shadow(color: .royal, radius: 10, x: 0, y: 0) // Sombra gris
-            }
-            
-            
-            
-            
-            VStack(alignment:.center){
+            ScrollView{
+                VStack{
+                    Text("Sneaker Hub") // Texto
+                        .foregroundStyle(.gray)
+                        .font(.title2)
+                        .bold()
+                        .frame(width: 150, height: 150) // Tamaño del marco
+                        .background(Color.white) // Fondo blanco
+                        .clipShape(Circle()) // Recortar en forma de círculo
+                        .overlay(Circle().stroke(Color.green, lineWidth: 2)) // Borde negro
+                        .shadow(color: .royal, radius: 10, x: 0, y: 0) // Sombra gris
+                        .padding(.top,40)
+                }
+                
+                
+                
+                
+                
                 
                 VStack(alignment:.leading){
                     HStack(){
@@ -73,7 +75,7 @@ struct LoginView: View {
                         .clipShape(.rect(cornerRadius: 30))
                     
                     
-                }.padding()
+                }.padding().foregroundStyle(.gray)
                 
                 HStack{
                     Spacer()
@@ -100,22 +102,25 @@ struct LoginView: View {
                         .font(.title2)
                         .padding(22)
                         .frame(maxWidth: .infinity)
-                        .background(.royal)
+                        .background(.green)
                         .clipShape(.rect(cornerRadius: 40))
                         .padding()
                         .foregroundStyle(.white)
                         
-                            
+                        
                         
                     }
                     
                 }
-            }.navigationDestination(
+                
+                .navigationDestination(
                     isPresented: $isActive,
                     destination:{
-                    ContentView()
+                        ContentView()
                             .navigationBarBackButtonHidden(true)
-                    })}.background(.white)
+                    })
+            }.background(Color.white).foregroundStyle(.gray)
+        }
         
         }
     
