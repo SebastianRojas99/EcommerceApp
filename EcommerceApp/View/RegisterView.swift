@@ -14,22 +14,28 @@ struct RegisterView: View {
     @State private var isActive: Bool = false
     var body: some View {
         NavigationStack{
-            VStack{
-                Text("Sneaker Hub") // Texto
-                    .foregroundStyle(.gray)
-                    .font(.title2)
-                    .bold()
-                    .frame(width: 150, height: 150) // Tamaño del marco
-                    .background(Color.white) // Fondo blanco
-                    .clipShape(Circle()) // Recortar en forma de círculo
-                    .overlay(Circle().stroke(Color.green, lineWidth: 2)) // Borde negro
-                    .shadow(color: .royal, radius: 10, x: 0, y: 0) // Sombra gris
-            }
-            VStack(alignment:.center){
+            ScrollView{
+                VStack{
+                    Text("Sneaker Hub") // Texto
+                        .foregroundStyle(.gray)
+                        .font(.title2)
+                        .bold()
+                        .frame(width: 150, height: 150) // Tamaño del marco
+                        .background(Color.white) // Fondo blanco
+                        .clipShape(Circle()) // Recortar en forma de círculo
+                        .overlay(Circle().stroke(Color.green, lineWidth: 2)) // Borde negro
+                        .shadow(color: .royal, radius: 10, x: 0, y: 0) // Sombra gris
+                        .padding(.top,40)
+                }
+                
+                
+                
+                
+                
                 
                 VStack(alignment:.leading){
                     HStack(){
-                        Text("Login")
+                        Text("Register")
                             .font(.largeTitle)
                             .bold()
                             .foregroundStyle(.green)
@@ -39,14 +45,49 @@ struct RegisterView: View {
                     }.padding()
                     
                 }
+                
+                HStack{
+                    
+                    VStack(alignment:.leading){
+                        Text("Name")
+                            .font(.title2)
+                            .foregroundStyle(.gray)
+                            .frame(alignment: .leading)
+                        Spacer()
+                        TextField("Enter name", text: $username)
+                            .autocapitalization(.none)
+                            .frame(height: 20)
+                            .padding()
+                            .background(.green.opacity(0.2))
+                            .clipShape(.rect(cornerRadius: 30))
+                           
+                    }.padding(.horizontal,5)
+                    
+                    VStack(alignment:.leading){
+                        Text("Lastname")
+                            .font(.title2)
+                            .foregroundStyle(.gray)
+                        Spacer()
+                        TextField("Enter lastname", text: $username)
+                            .autocapitalization(.none)
+                            .frame(height: 20)
+                            .padding()
+                            .background(.green.opacity(0.2))
+                            .clipShape(.rect(cornerRadius: 30))
+                           
+                    }.padding(.horizontal,5)
+                }.padding(.top,20)
+                
+                
+                
                 VStack{
                     HStack{
-                        Text("Name")
+                        Text("Username")
                             .font(.title2)
                             .foregroundStyle(.gray)
                         Spacer()
                     }
-                    TextField("Enter your name", text: $username)
+                    TextField("Enter your username", text: $username)
                         .autocapitalization(.none)
                         .frame(height: 20)
                         .padding()
@@ -54,7 +95,7 @@ struct RegisterView: View {
                         .clipShape(.rect(cornerRadius: 30))
                     
                     HStack{
-                        Text("Lastname")
+                        Text("Password")
                             .font(.title2)
                             .foregroundStyle(.gray)
                         
@@ -62,60 +103,21 @@ struct RegisterView: View {
                         
                     }
                     
-                    TextField("Enter your lastname", text: $password)
+                    SecureField("Enter your password", text: $password)
                         .frame(height: 20)
                         .padding()
                         .background(.green.opacity(0.2))
                         .clipShape(.rect(cornerRadius: 30))
                     
                     
-                }.padding()
+                }.padding().foregroundStyle(.gray)
                 
                 HStack{
-                    Text("Username")
-                        .font(.title2)
-                        .foregroundStyle(.gray)
                     Spacer()
-                }
-                TextField("Enter your username", text: $username)
-                    .autocapitalization(.none)
-                    .frame(height: 20)
-                    .padding()
-                    .background(.green.opacity(0.2))
-                    .clipShape(.rect(cornerRadius: 30))
-                HStack{
-                    Text("Email")
-                        .font(.title2)
-                        .foregroundStyle(.gray)
-                    Spacer()
-                }
-                TextField("Enter your email", text: $username)
-                    .autocapitalization(.none)
-                    .frame(height: 20)
-                    .padding()
-                    .background(.green.opacity(0.2))
-                    .clipShape(.rect(cornerRadius: 30))
-                
-                HStack{
-                    Text("Password")
-                        .font(.title2)
-                        .foregroundStyle(.gray)
-                    
-                    Spacer()
-                    
-                }
-                
-                SecureField("Enter your password", text: $password)
-                    .frame(height: 20)
-                    .padding()
-                    .background(.green.opacity(0.2))
-                    .clipShape(.rect(cornerRadius: 30))
-                HStack{
-                    Spacer()
-                    Button{
-                        
+                    NavigationLink{
+                        LoginView().navigationBarBackButtonHidden(true)
                     }label: {
-                        Text("Forgot the password?")
+                        Text("Have account?, Sign In!")
                             .foregroundStyle(.gray)
                     }
                 }.padding()
@@ -128,30 +130,32 @@ struct RegisterView: View {
                         }
                     }label: {
                         HStack{
-                            Text("Go to buy!").bold()
+                            Text("Register now!").bold()
                             Text("")
                             Image(systemName: "arrow.right").imageScale(.large).bold()
                         }
                         .font(.title2)
                         .padding(22)
                         .frame(maxWidth: .infinity)
-                        .background(.royal)
+                        .background(.green)
                         .clipShape(.rect(cornerRadius: 40))
                         .padding()
                         .foregroundStyle(.white)
                         
                         
+                        
                     }
+                    
+                }
                 
-            }.padding()
-            
-            
-            }.navigationDestination(
+                .navigationDestination(
                     isPresented: $isActive,
                     destination:{
-                    ContentView()
+                        ContentView()
                             .navigationBarBackButtonHidden(true)
-                    })}
+                    })
+            }.background(Color.white).foregroundStyle(.gray)
+        }
         
         }
     

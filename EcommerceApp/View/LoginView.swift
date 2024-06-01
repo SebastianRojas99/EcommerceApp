@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var userViewModel = UserViewModel()
+    @Environment(UserViewModel.self) private var userViewModel
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var isActive: Bool = false
@@ -27,11 +27,6 @@ struct LoginView: View {
                         .shadow(color: .royal, radius: 10, x: 0, y: 0) // Sombra gris
                         .padding(.top,40)
                 }
-                
-                
-                
-                
-                
                 
                 VStack(alignment:.leading){
                     HStack(){
@@ -100,7 +95,7 @@ struct LoginView: View {
                             Image(systemName: "arrow.right").imageScale(.large).bold()
                         }
                         .font(.title2)
-                        .padding(22)
+                        .padding(12)
                         .frame(maxWidth: .infinity)
                         .background(.green)
                         .clipShape(.rect(cornerRadius: 40))
@@ -118,7 +113,23 @@ struct LoginView: View {
                     destination:{
                         ContentView()
                             .navigationBarBackButtonHidden(true)
+                            .environment(userViewModel)
                     })
+                
+                Text("---------------------or--------------------")
+                
+                NavigationLink{
+                    RegisterView().navigationBarBackButtonHidden(true)
+                }label: {
+                    Text("Register new account")
+                        .font(.title2)
+                        .padding(12)
+                        .frame(maxWidth: .infinity)
+                        .background(.green)
+                        .clipShape(.rect(cornerRadius: 40))
+                        .padding()
+                        .foregroundStyle(.white)
+                }.padding(.bottom,30)
             }.background(Color.white).foregroundStyle(.gray)
         }
         

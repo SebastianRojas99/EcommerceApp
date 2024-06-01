@@ -11,6 +11,7 @@ struct Home: View {
     @State private var selectedCategory = ""
     @Environment(CartvViewModel.self) private var cartManager
     @State private var cartInProduct = myCart
+    @Environment(UserViewModel.self) private var user
     
     var body: some View {
         NavigationStack {
@@ -51,6 +52,7 @@ struct Home: View {
                                 
                             }
                         }
+                        Text("Hola! \(user.getUser() ?? "Invitado")")
                             }
                             .padding(12)
                     
@@ -87,6 +89,7 @@ struct Home: View {
                     }
                 }
             }
+        .environment(user)
             .background(Color.white)
         }
     }

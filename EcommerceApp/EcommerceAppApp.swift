@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct EcommerceAppApp: App {
     @State var cartManager = CartvViewModel()
+    @State var user = UserViewModel()
     var body: some Scene {
         WindowGroup {
             LoginView()
                 .environment(cartManager)
+                .environment(user)
                 .background(ignoresSafeAreaEdges: .all)
                 
         }

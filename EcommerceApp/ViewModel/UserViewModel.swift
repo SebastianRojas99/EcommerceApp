@@ -19,8 +19,13 @@ class UserViewModel{
     
     func validation(_username:String,_password:String)->Bool{
             if let storedPassword = testFlightCredentials[_username], storedPassword == _password {
+                self.username = _username
                 return true
             }
             return false
         }
+    
+    func getUser() -> String?{
+        return username
+    }
 }
