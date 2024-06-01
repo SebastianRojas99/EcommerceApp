@@ -75,7 +75,7 @@ struct ProductListView: View {
                         .clipped()
                         .onDrag {
                             self.product = item
-                            return NSItemProvider()
+                            return NSItemProvider(object: item.id.uuidString as NSString)
                         }
                         
                     }
