@@ -47,12 +47,16 @@ struct LoginView: View {
                             .foregroundStyle(.gray)
                         Spacer()
                     }
-                    TextField("Enter your username", text: $username)
-                        .autocapitalization(.none)
-                        .frame(height: 20)
-                        .padding()
-                        .background(.green.opacity(0.2))
-                        .clipShape(.rect(cornerRadius: 30))
+                    VStack{
+                        TextField("", text: $username,prompt: Text("Enter your username").foregroundStyle(.gray))
+                            .foregroundStyle(.black)
+                            .autocapitalization(.none)
+                            .frame(height: 20)
+                            .padding()
+                            .background(.green.opacity(0.2))
+                            .clipShape(.rect(cornerRadius: 30))
+                    }
+                    
                     
                     HStack{
                         Text("Password")
@@ -63,14 +67,16 @@ struct LoginView: View {
                         
                     }
                     
-                    SecureField("Enter your password", text: $password)
+                    SecureField("", text: $password,prompt: Text("Enter your password").foregroundStyle(.gray))
+                        .foregroundStyle(.black)
                         .frame(height: 20)
                         .padding()
                         .background(.green.opacity(0.2))
                         .clipShape(.rect(cornerRadius: 30))
+                        .tint(.gray)
                     
                     
-                }.padding().foregroundStyle(.gray)
+                }.padding().foregroundStyle(.red)
                 
                 HStack{
                     Spacer()
@@ -138,5 +144,5 @@ struct LoginView: View {
     }
 
 #Preview {
-    LoginView()
+    LoginView().environment(UserViewModel())
 }

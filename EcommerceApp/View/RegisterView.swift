@@ -54,7 +54,7 @@ struct RegisterView: View {
                             .foregroundStyle(.gray)
                             .frame(alignment: .leading)
                         Spacer()
-                        TextField("Enter name", text: $username)
+                        TextField("", text: $username,prompt: Text("Enter name").foregroundStyle(.gray))
                             .autocapitalization(.none)
                             .frame(height: 20)
                             .padding()
@@ -68,7 +68,7 @@ struct RegisterView: View {
                             .font(.title2)
                             .foregroundStyle(.gray)
                         Spacer()
-                        TextField("Enter lastname", text: $username)
+                        TextField("", text: $username,prompt: Text("Enter lastname").foregroundStyle(.gray))
                             .autocapitalization(.none)
                             .frame(height: 20)
                             .padding()
@@ -87,7 +87,7 @@ struct RegisterView: View {
                             .foregroundStyle(.gray)
                         Spacer()
                     }
-                    TextField("Enter your username", text: $username)
+                    TextField("", text: $username,prompt: Text("Enter username").foregroundStyle(.gray))
                         .autocapitalization(.none)
                         .frame(height: 20)
                         .padding()
@@ -103,7 +103,7 @@ struct RegisterView: View {
                         
                     }
                     
-                    SecureField("Enter your password", text: $password)
+                    SecureField("", text: $password,prompt: Text("Enter password").foregroundStyle(.gray))
                         .frame(height: 20)
                         .padding()
                         .background(.green.opacity(0.2))
