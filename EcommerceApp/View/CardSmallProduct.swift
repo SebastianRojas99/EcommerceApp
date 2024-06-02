@@ -16,6 +16,16 @@ struct CardSmallProduct: View {
         NavigationStack{
             HStack{
                 Spacer()
+                HStack{
+                    Text("Cart").font(.largeTitle)
+                    Spacer()
+                        Text("\(cartManager.products.count)")
+                            .padding()
+                            .frame(width: 70,height: 90)
+                            .background(.green.opacity(0.4))
+                            .clipShape(Capsule())
+                }
+
                 DismissButton()
                     .padding()
             }

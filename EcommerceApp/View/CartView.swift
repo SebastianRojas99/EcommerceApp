@@ -27,7 +27,7 @@ struct CartView: View {
                         DismissButton()
                     }
                     
-                    //MARK: FIX THAT! BOGUS
+                    
                     if cartManager.products.isEmpty{
                         ContentUnavailableView("Carrito vacio...", systemImage: "cart.fill.badge.questionmark")
                     }else{
