@@ -19,11 +19,16 @@ struct CardSmallProduct: View {
                 HStack{
                     Text("Cart").font(.largeTitle)
                     Spacer()
+                    NavigationLink{
+                        CartView().environment(cartManager)
+                    }label: {
                         Text("\(cartManager.products.count)")
                             .padding()
                             .frame(width: 70,height: 90)
                             .background(.green.opacity(0.4))
                             .clipShape(Capsule())
+                    }
+                        
                 }
 
                 DismissButton()
@@ -116,6 +121,7 @@ struct CardSmallProduct: View {
             
 
         }
+        
             .navigationTitle("\(selectedCategory) shoes ").font(.largeTitle)
             .background(.white)
             .foregroundStyle(.black)
