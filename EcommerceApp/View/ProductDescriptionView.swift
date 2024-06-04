@@ -14,9 +14,12 @@ struct ProductDescriptionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             // Imagen del producto
-            Image(product.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            VStack{
+                Image(product.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+            
             
             // Nombre y precio del producto
             Divider()
@@ -55,10 +58,11 @@ struct ProductDescriptionView: View {
                     .font(.headline)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.royal).opacity(0.4)
+                    .background(Color.royal.opacity(0.4))
                     .foregroundStyle(.white)
                     .cornerRadius(10)
             }
+            .foregroundStyle(.white)
             .padding(.bottom)
         }
         .padding()
