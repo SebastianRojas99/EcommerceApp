@@ -21,12 +21,20 @@ struct ProductListView: View {
                     if selectedCategory == "All" || item.category.title == selectedCategory {
                         ZStack {
                             ZStack {
-                                Image(item.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 500, maxHeight: 500)
-                                    .padding(.trailing, -65)
-                                    .clipped()
+                                
+                                NavigationLink{
+                                    ProductDescriptionView(product: item)
+                                }label: {
+                                    Image(item.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 500, maxHeight: 500)
+                                        .padding(.trailing, -65)
+                                        .clipped()
+                                }
+                                    
+                                
+                                
                                 VStack {
                                     VStack(alignment: .leading) {
                                         Text("**\(item.name)**")

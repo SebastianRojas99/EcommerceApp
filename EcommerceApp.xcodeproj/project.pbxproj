@@ -25,6 +25,7 @@
 		969EF5292BE30A3100C229C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF5282BE30A3100C229C6 /* User.swift */; };
 		969EF52B2BE30BDC00C229C6 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF52A2BE30BDC00C229C6 /* UserViewModel.swift */; };
 		96AA6C5E2C05609A00FA97CD /* UsersCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA6C5D2C05609A00FA97CD /* UsersCredentials.swift */; };
+		96C1254C2C0FB3A8003E1AEA /* ProductDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C1254B2C0FB3A8003E1AEA /* ProductDescriptionView.swift */; };
 		96D228C72BD35FC400FE7806 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D228C62BD35FC400FE7806 /* ProductListView.swift */; };
 		96EBCB152BD006CE00F0DC7B /* EcommerceAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EBCB142BD006CE00F0DC7B /* EcommerceAppApp.swift */; };
 		96EBCB172BD006CE00F0DC7B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EBCB162BD006CE00F0DC7B /* ContentView.swift */; };
@@ -53,6 +54,7 @@
 		969EF5282BE30A3100C229C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		969EF52A2BE30BDC00C229C6 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		96AA6C5D2C05609A00FA97CD /* UsersCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCredentials.swift; sourceTree = "<group>"; };
+		96C1254B2C0FB3A8003E1AEA /* ProductDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionView.swift; sourceTree = "<group>"; };
 		96D228C62BD35FC400FE7806 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		96EBCB112BD006CE00F0DC7B /* EcommerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcommerceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96EBCB142BD006CE00F0DC7B /* EcommerceAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcommerceAppApp.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				96EBCB162BD006CE00F0DC7B /* ContentView.swift */,
 				9646970B2C050D9E0077A139 /* LoginView.swift */,
 				963CF0F12C08190A00DB4ADB /* RegisterView.swift */,
+				96C1254B2C0FB3A8003E1AEA /* ProductDescriptionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				961132032BDAFAA5005BC821 /* CartToCard.swift in Sources */,
 				96EBCB232BD006EE00F0DC7B /* Home.swift in Sources */,
 				965FC69A2BDBF18300DE5931 /* CartManager.swift in Sources */,
+				96C1254C2C0FB3A8003E1AEA /* ProductDescriptionView.swift in Sources */,
 				965FC69E2BDBF64B00DE5931 /* CartvViewModel.swift in Sources */,
 				96EBCB152BD006CE00F0DC7B /* EcommerceAppApp.swift in Sources */,
 				962208DE2BF05AE2008DA3EC /* DynamicIslandDelegate.swift in Sources */,
