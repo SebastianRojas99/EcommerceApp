@@ -24,7 +24,7 @@ struct LoginView: View {
                         .background(Color.white) // Fondo blanco
                         .clipShape(Circle()) // Recortar en forma de círculo
                         .overlay(Circle().stroke(Color.green, lineWidth: 2)) // Borde negro
-                        .shadow(color: .royal, radius: 10, x: 0, y: 0) // Sombra gris
+                        .shadow(color: .black.opacity(0.5), radius: 10, x: 0, y: 0) // Sombra gris
                         .padding(.top,40)
                 }
                 
