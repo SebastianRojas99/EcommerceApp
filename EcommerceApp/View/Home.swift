@@ -21,56 +21,67 @@ struct Home: View {
                     HStack {
                         Text("**Sneaker Hub** Place 👟")
                             .font(.system(size: 32))
-                            .padding(.trailing)
+                            .padding(.horizontal)
                         Spacer()
-                        NavigationLink {
-                            CartView()
-                                .environment(cartManager)
-                        } label: {
-                            HStack {
-                                Image(systemName: "cart")
-                                    .imageScale(.large)
-                                    .font(.system(size: 25))
-                                    .padding(.horizontal)
-                                    .frame(width: 45, height: 80)
-                                    .overlay(RoundedRectangle(cornerRadius: 120).stroke(Color.green, lineWidth: 270).opacity(0.3))
-                                
-                            }.onDrop(of: [UTType.text], isTargeted:nil){ providers in
-                                if let provider = providers.first{
-                                    provider.loadObject(ofClass: NSString.self){ (object, error) in
-                                        if let idString = object as? String, let uuid = UUID(uuidString: idString){
-                                            if let product = productList.first(where: {$0.id == uuid}){
-                                                DispatchQueue.main.async{
-                                                    cartManager.addToCart(product:product)
+                        
+                        HStack{
+                            
+                            Text("Hola! \(user.getUser() ?? "Invitado")")
+                                }
+                                .padding(12)
+                            
+                            NavigationLink {
+                                CartView()
+                                    .environment(cartManager)
+                            } label: {
+                                HStack {
+                                    Image(systemName: "cart")
+                                        .imageScale(.large)
+                                            .font(.system(size: 25))
+                                            .padding(.horizontal)
+                                            .frame(width: 45, height: 80)
+                                        
+                                    
+                                }.overlay(RoundedRectangle(cornerRadius: 120).stroke(Color.green, lineWidth: 270).opacity(0.3))
+                                .onDrop(of: [UTType.text], isTargeted:nil){ providers in
+                                    if let provider = providers.first{
+                                        provider.loadObject(ofClass: NSString.self){ (object, error) in
+                                            if let idString = object as? String, let uuid = UUID(uuidString: idString){
+                                                if let product = productList.first(where: {$0.id == uuid}){
+                                                    DispatchQueue.main.async{
+                                                        cartManager.addToCart(product:product)
+                                                    }
                                                 }
                                             }
+                                            
                                         }
+                                        return true
+                                    }
+                                    return false
+                                }
+                                
+                            }
+                            HStack{
+                                NavigationLink {
+                                    LoginView().navigationBarBackButtonHidden(true)
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "person.slash")
+                                            .imageScale(.large)
+                                            .font(.system(size: 25))
+                                            .padding()
+                                            .frame(width: 45, height: 80)
                                         
                                     }
-                                    return true
+                                    
                                 }
-                                return false
                             }
                             
                         }
-                        HStack{
-                            NavigationLink {
-                                LoginView().navigationBarBackButtonHidden(true)
-                            } label: {
-                                HStack {
-                                    Image(systemName: "person.slash")
-                                        .imageScale(.large)
-                                        .font(.system(size: 25))
-                                        .padding()
-                                        .frame(width: 45, height: 80)
-                                    
-                                }
-                                
-                            }
-                        }
-                        Text("Hola! \(user.getUser() ?? "Invitado")")
-                            }
-                            .padding(12)
+                        
+                        
+                        
+                        
                     
                     
                         
@@ -80,7 +91,7 @@ struct Home: View {
                             
                         
                         HStack {
-                            Text("Explore **\(selectedCategory)** shoes").font(.system(size: 24))
+                            Text("Explore **\(selectedCategory)** shoes").font(.system(size: 24)).padding(.horizontal)
                             Spacer()
                             if !selectedCategory.isEmpty {
                                 NavigationLink {
