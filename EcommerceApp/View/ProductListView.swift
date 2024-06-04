@@ -23,7 +23,8 @@ struct ProductListView: View {
                             ZStack {
                                 
                                 NavigationLink{
-                                    ProductDescriptionView(product: item)
+                                    ProductDescriptionView(product: item).navigationBarBackButtonHidden(true)
+                                        .environment(cartManager)
                                 }label: {
                                     Image(item.image)
                                         .resizable()

@@ -61,5 +61,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView().environment(CartvViewModel())
 }

@@ -121,3 +121,6 @@ struct Home: View {
         }
     }
 
+#Preview {
+    Home().environment(CartvViewModel())
+}

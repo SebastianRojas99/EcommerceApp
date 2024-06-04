@@ -8,34 +8,60 @@
 import SwiftUI
 
 struct ProductDescriptionView: View {
-    @State var product:ProductModel
+    @State var product: ProductModel
+    @Environment(CartvViewModel.self) private var cartManager
+    
     var body: some View {
-        VStack{
-            ZStack{
-                HStack{
-                    
-                    HStack{
-                        DismissButton()
-                    }
-                    HStack{
-                        Image(product.image)
-                    }
-                }
-            }
-            VStack{
-                HStack{
-                    Text(product.name)
-                        .font(.largeTitle)
-                        .bold()
-                    Text("\(product.price)")
-                        .font(.callout)
-                        .foregroundStyle(.royal)
-                }
+        VStack(alignment: .leading, spacing: 16) {
+            // Imagen del producto
+            Image(product.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            
+            // Nombre y precio del producto
+            Divider()
+            HStack {
+                Text(product.name)
+                    .font(.largeTitle)
+                    .bold()
                 
+                Spacer()
+                
+                Text("$\(product.price)")
+                    .font(.title)
+                    .foregroundColor(.blue)
             }
             
+            // Divider
+            
+            
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Description")
+                    .font(.headline)
+                
+                Text(product.description)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+            }
+            
+            Spacer()
+            
+            
+            Button(action: {
+                cartManager.addToCart(product: product)
+            }) {
+                Text("Add To Cart")
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.royal).opacity(0.4)
+                    .foregroundStyle(.white)
+                    .cornerRadius(10)
+            }
+            .padding(.bottom)
         }
-        
+        .padding()
+        .navigationBarItems(leading: DismissButton().foregroundStyle(.black))
     }
 }
-
