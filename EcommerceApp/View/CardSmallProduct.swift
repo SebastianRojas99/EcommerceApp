@@ -21,36 +21,16 @@ struct CardSmallProduct: View {
                 HStack{
                     Text("Cart").font(.largeTitle)
                     Spacer()
-                    NavigationLink{
-                        CartView().environment(cartManager)
-                    }label: {
-                        Text("\(cartManager.products.count)")
-                            .padding()
-                            .frame(width: 70,height: 90)
-                            .background(.green.opacity(0.4))
-                            .clipShape(Capsule())
-                    }.onDrop(of: [UTType.text], isTargeted:nil){ providers in
-                        if let provider = providers.first{
-                            provider.loadObject(ofClass: NSString.self){ (object, error) in
-                                if let idString = object as? String, let uuid = UUID(uuidString: idString){
-                                    if let product = productList.first(where: {$0.id == uuid}){
-                                        DispatchQueue.main.async{
-                                            cartManager.addToCart(product:product)
-                                        }
-                                    }
-                                }
-                                
-                            }
-                            return true
-                        }
-                        return false
+                    CartButton().padding(.horizontal)
+                    DismissButton()
                     }
-                        
                 }
-
-                DismissButton()
-                    .padding()
-            }
+                .padding()
+            }.navigationTitle("\(selectedCategory) shoes ").font(.largeTitle)
+            .background(.white)
+            .foregroundStyle(.black)
+        
+        
             ScrollView(.vertical,showsIndicators: false){
                 LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible())],spacing: 20, content: {
                     ForEach(viewModel.productList) { item in
@@ -147,12 +127,5 @@ struct CardSmallProduct: View {
             
 
         }
-        
-            .navigationTitle("\(selectedCategory) shoes ").font(.largeTitle)
-            .background(.white)
-            .foregroundStyle(.black)
-            
-
-    }
 }
 

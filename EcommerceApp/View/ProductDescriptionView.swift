@@ -21,9 +21,6 @@ struct ProductDescriptionView: View {
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Capsule())
                     .padding(.all)
-                    .ignoresSafeArea(.all)
-                    .background(product.category.color.opacity(0.8),ignoresSafeAreaEdges: .all)
-                    
             }
                 
                     
@@ -75,6 +72,6 @@ struct ProductDescriptionView: View {
         .padding()
         .navigationBarItems(leading: DismissButton().foregroundStyle(.black))
         .background(.white)
-        .edgesIgnoringSafeArea(.all)
+        
     }
 }

@@ -11,10 +11,11 @@ struct Home: View {
     @State private var categoryViewModel = CategoryViewModel(categoryList: categoryList)
     @State private var selectedCategory = ""
     @Environment(CartvViewModel.self) private var cartManager
-    @State private var cartInProduct = myCart
+    @State private var cartInProduct = myCart.count
     @Environment(UserViewModel.self) private var user
     
     var body: some View {
+        
         NavigationStack {
             ScrollView {
                 VStack {
@@ -29,38 +30,9 @@ struct Home: View {
                             Text("Hola! \(user.getUser()?.capitalized ?? "Invitado")")
                                 }.padding(12)
                         
-                            
-                            NavigationLink {
-                                CartView()
-                                    .environment(cartManager)
-                            } label: {
-                                HStack {
-                                    Image(systemName: "cart")
-                                        .imageScale(.large)
-                                            .font(.system(size: 25))
-                                            .padding(.horizontal)
-                                            .frame(width: 45, height: 80)
-                                        
-                                    
-                                }.overlay(RoundedRectangle(cornerRadius: 120).stroke(Color.green, lineWidth: 270).opacity(0.3))
-                                .onDrop(of: [UTType.text], isTargeted:nil){ providers in
-                                    if let provider = providers.first{
-                                        provider.loadObject(ofClass: NSString.self){ (object, error) in
-                                            if let idString = object as? String, let uuid = UUID(uuidString: idString){
-                                                if let product = productList.first(where: {$0.id == uuid}){
-                                                    DispatchQueue.main.async{
-                                                        cartManager.addToCart(product:product)
-                                                    }
-                                                }
-                                            }
-                                            
-                                        }
-                                        return true
-                                    }
-                                    return false
-                                }
-                                
-                            }
+                        //BUTTON WITH COUNTER DELEGATE
+                            CartButton()
+                        
                             HStack{
                                 NavigationLink {
                                     LoginView().navigationBarBackButtonHidden(true)
@@ -72,20 +44,13 @@ struct Home: View {
                                             .padding()
                                             .frame(width: 45, height: 80)
                                         
-                                    }
+                                    }.overlay(RoundedRectangle(cornerRadius: 120).stroke(Color.green, lineWidth: 270).opacity(0.3))
                                     
                                 }
                             }
                             
                         }
-                        
-                        
-                        
-                        
-                    
-                    
-                        
-                        
+                          
                         CategoryListView(selectedCategory: $selectedCategory)
                             .environment(cartManager)
                             
@@ -97,6 +62,7 @@ struct Home: View {
                                 NavigationLink {
                                     CardSmallProduct(selectedCategory: $selectedCategory)
                                         .environment(cartManager)
+                                        .navigationBarBackButtonHidden(true)
                                 } label: {
                                     HStack {
                                         Image(systemName: "arrow.right")
