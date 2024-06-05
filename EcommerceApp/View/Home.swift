@@ -46,6 +46,11 @@ struct Home: View {
                                         
                                     }.overlay(RoundedRectangle(cornerRadius: 120).stroke(Color.green, lineWidth: 270).opacity(0.3))
                                     
+                                    //MARK: BUG
+                                        //.onChange(of: cartManager.products){
+                                          //  cartManager.products.removeAll()
+                                        //}
+                                    
                                 }
                             }
                             
