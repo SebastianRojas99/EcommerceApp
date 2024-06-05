@@ -26,9 +26,9 @@ struct Home: View {
                         
                         HStack{
                             
-                            Text("Hola! \(user.getUser() ?? "Invitado")")
-                                }
-                                .padding(12)
+                            Text("Hola! \(user.getUser()?.capitalized ?? "Invitado")")
+                                }.padding(12)
+                        
                             
                             NavigationLink {
                                 CartView()

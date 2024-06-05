@@ -127,7 +127,7 @@ struct LoginView: View {
                 NavigationLink{
                     RegisterView().navigationBarBackButtonHidden(true)
                 }label: {
-                    Text("Register new account")
+                    Text("Register a new account")
                         .font(.title2)
                         .padding(12)
                         .frame(maxWidth: .infinity)

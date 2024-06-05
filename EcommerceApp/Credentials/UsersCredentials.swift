@@ -11,4 +11,6 @@ var testFlightCredentials: [String: String] = [
     "seba": "123",
     "apple-man": "123",
     "santi":"123",
+    "cande":"123",
+    "alva":"123",
 ]

@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
+
 
 struct CardSmallProduct: View {
     @State var viewModel = ProductViewModel(productList: productList)
     @Binding var selectedCategory: String
     @Environment(CartvViewModel.self) private var cartManager
-    
+    @State var product: ProductModel!
     var body: some View {
         NavigationStack{
             HStack{
@@ -27,6 +29,21 @@ struct CardSmallProduct: View {
                             .frame(width: 70,height: 90)
                             .background(.green.opacity(0.4))
                             .clipShape(Capsule())
+                    }.onDrop(of: [UTType.text], isTargeted:nil){ providers in
+                        if let provider = providers.first{
+                            provider.loadObject(ofClass: NSString.self){ (object, error) in
+                                if let idString = object as? String, let uuid = UUID(uuidString: idString){
+                                    if let product = productList.first(where: {$0.id == uuid}){
+                                        DispatchQueue.main.async{
+                                            cartManager.addToCart(product:product)
+                                        }
+                                    }
+                                }
+                                
+                            }
+                            return true
+                        }
+                        return false
                     }
                         
                 }
@@ -41,13 +58,18 @@ struct CardSmallProduct: View {
                             
                                 
                             ZStack{
-                                        Image(item.image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(maxWidth: 500) // Límite de tamaño máximo
-                                            .frame(maxHeight:500)
-                                            .padding(.trailing, -45)
-                                            .clipped()
+                                NavigationLink{
+                                    ProductDescriptionView(product: item).navigationBarBackButtonHidden(true)
+                                        .environment(cartManager)
+                                    
+                                }label: {
+                                    Image(item.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 500, maxHeight: 500)
+                                        .padding(.trailing, -65)
+                                        .clipped()
+                                }
                                         
                                         VStack(alignment:.leading){
                                             VStack(alignment:.leading){
@@ -109,6 +131,10 @@ struct CardSmallProduct: View {
                                         .background(item.category.color.opacity(0.2))
                                         .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                                         .clipped()
+                                        .onDrag {
+                                            self.product = item
+                                            return NSItemProvider(object: item.id.uuidString as NSString)
+                                        }
                                     
                                     
                                     
