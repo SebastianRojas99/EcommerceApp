@@ -23,7 +23,7 @@ struct CartButton: View {
                         .padding(.horizontal)
                         .frame(width: 45, height: 80)
                         .overlay{
-                            CounterButton(value: $cartInProduct, foreground: .white, background: .royal)
+                            CounterButton(value: $cartInProduct, foreground: .white, background: .green)
                         }.onChange(of: cartManager.products){
                             cartInProduct = cartManager.products.count
                         }

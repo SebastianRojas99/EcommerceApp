@@ -31,7 +31,7 @@ struct Home: View {
                                 }.padding(12)
                         
                         
-                            CartButton()
+                        CartButton()
                         
                             HStack{
                                 NavigationLink {

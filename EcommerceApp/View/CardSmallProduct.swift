@@ -26,7 +26,9 @@ struct CardSmallProduct: View {
                     }
                 }
                 .padding()
-            }.navigationTitle("\(selectedCategory) shoes ").font(.largeTitle)
+                .background(.white)
+            }.navigationTitle("\(selectedCategory) shoes ")
+            .font(.largeTitle)
             .background(.white)
             .foregroundStyle(.black)
         
@@ -72,6 +74,7 @@ struct CardSmallProduct: View {
                                                 HStack {
                                                     Text("$\(item.price)")
                                                         .font(.system(size:18))
+                                                        .foregroundStyle(.black)
                                                         
                                                     Spacer()
                                                     Button {
@@ -100,7 +103,7 @@ struct CardSmallProduct: View {
                                                 .clipShape(RoundedRectangle(cornerRadius: 35))
                                             
                                             
-                                        }.frame(width: 180, height: 250)
+                                        }.frame(width: 180, height: 250).foregroundStyle(.black)
                                     
                                         
                                     }.font(.system(size: 30))
@@ -119,11 +122,11 @@ struct CardSmallProduct: View {
                                     
                                     
                                 
-                            }
+                        }
 
                     }
                 })
-            }
+            }.background(.white)
             
 
         }

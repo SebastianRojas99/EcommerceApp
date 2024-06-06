@@ -30,17 +30,15 @@ struct ProductDescriptionView: View {
                 Text(product.name)
                     .font(.largeTitle)
                     .bold()
+                    .foregroundStyle(.black)
                 
                 Spacer()
                 
                 Text("$\(product.price)")
                     .font(.title)
-                    .foregroundColor(.blue)
+                    .foregroundStyle(.green.opacity(0.7))
             }
-            
-            // Divider
-            
-            
+        
             
             VStack(alignment: .leading, spacing: 8) {
                 Text("Description")
@@ -48,7 +46,7 @@ struct ProductDescriptionView: View {
                 
                 Text(product.description)
                     .font(.body)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.gray)
             }
             
             Spacer()
@@ -61,7 +59,7 @@ struct ProductDescriptionView: View {
                     .font(.headline)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.royal.opacity(0.4))
+                    .background(Color.green.opacity(0.4))
                     .foregroundStyle(.white)
                     .cornerRadius(10)
             }
