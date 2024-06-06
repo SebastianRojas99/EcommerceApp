@@ -30,11 +30,6 @@ class CartvViewModel{
         products = []
         total = 0
     }
-    func clearCart(product:ProductModel){
-        if let index = products.firstIndex(where: { $0.id == product.id }) {
-            total -= products[index].price
-            products.removeAll()
-        }
-    }
+    
     
 }

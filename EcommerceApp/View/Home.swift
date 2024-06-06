@@ -30,12 +30,14 @@ struct Home: View {
                             Text("Hola! \(user.getUser()?.capitalized ?? "Invitado")")
                                 }.padding(12)
                         
-                        //BUTTON WITH COUNTER DELEGATE
+                        
                             CartButton()
                         
                             HStack{
                                 NavigationLink {
-                                    LoginView().navigationBarBackButtonHidden(true)
+                                    LoginView().navigationBarBackButtonHidden(true).onAppear{
+                                        cartManager.clearAllCart()
+                                    }
                                 } label: {
                                     HStack {
                                         Image(systemName: "person.slash")
@@ -44,12 +46,11 @@ struct Home: View {
                                             .padding()
                                             .frame(width: 45, height: 80)
                                         
-                                    }.overlay(RoundedRectangle(cornerRadius: 120).stroke(Color.green, lineWidth: 270).opacity(0.3))
+                                    }
+                                    .overlay(RoundedRectangle(cornerRadius: 120).stroke(Color.green, lineWidth: 270).opacity(0.3))
                                     
-                                    //MARK: BUG
-                                        //.onChange(of: cartManager.products){
-                                          //  cartManager.products.removeAll()
-                                        //}
+                                    
+                                        
                                     
                                 }
                             }
