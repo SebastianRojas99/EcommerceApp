@@ -17,7 +17,7 @@ struct LoginView: View {
             ScrollView{
                 VStack{
                     Text("Sneaker Hub") // Texto
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.gray.gradient)
                         .font(.title2)
                         .bold()
                         .frame(width: 150, height: 150) // Tamaño del marco
