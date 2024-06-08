@@ -47,10 +47,11 @@ struct CardSmallProduct: View {
                                 }label: {
                                     Image(item.image)
                                         .resizable()
-                                        .scaledToFit()
+                                        .scaledToFill()
                                         .frame(maxWidth: 500, maxHeight: 500)
                                         .padding(.trailing, -65)
                                         .clipped()
+                                        .padding(.top,50)
                                 }
                                         
                                         VStack(alignment:.leading){
@@ -71,45 +72,16 @@ struct CardSmallProduct: View {
                                                 
                                                 
                                                 
-                                                HStack {
-                                                    Text("$\(item.price)")
-                                                        .font(.system(size:18))
-                                                        .foregroundStyle(.black)
-                                                        
-                                                    Spacer()
-                                                    Button {
-                                                        cartManager.addToCart(product: item)
-                                                        print("Adding item to cart...")
-                                                    } label: {
-                                                        Image(systemName: "cart")
-                                                            .zIndex(1)
-                                                        
-                                                        
-                                                    }.imageScale(.small)
-                                                        .frame(width: 50, height: 40)
-                                                        .background(.black)
-                                                        .clipShape(Capsule())
-                                                        .foregroundStyle(.white)
-                                                        
-                                                    
-                                                    
-                                                    
-                                                    
-                                                }
-                                                .padding(.leading)
-                                                .padding()
-                                                .frame(height: 55)
-                                                .background(Color.white.opacity(0.7))
-                                                .clipShape(RoundedRectangle(cornerRadius: 35))
+
                                             
                                             
-                                        }.frame(width: 180, height: 250).foregroundStyle(.black)
+                                        }.frame(width: 180, height: 220).foregroundStyle(.black)
                                     
                                         
                                     }.font(.system(size: 30))
                                         .padding(.horizontal, 12)
                                         .padding(.bottom,10)
-                                        .frame(width: 180, height: 250)
+                                        .frame(width: 180, height: 220)
                                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 0))
                                         .background(item.category.color.opacity(0.2))
                                         .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))

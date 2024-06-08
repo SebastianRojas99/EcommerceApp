@@ -92,6 +92,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9607EA422C137B4F00BAC38A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		961132042BDB0266005BC821 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +148,7 @@
 		96EBCB132BD006CE00F0DC7B /* EcommerceApp */ = {
 			isa = PBXGroup;
 			children = (
+				9607EA422C137B4F00BAC38A /* Onboarding */,
 				96F7EA452C1106B700680A50 /* Utils */,
 				96AA6C5C2C05605700FA97CD /* Credentials */,
 				961132042BDB0266005BC821 /* Components */,

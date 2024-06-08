@@ -54,7 +54,7 @@ struct LoginView: View {
                             .frame(height: 20)
                             .padding()
                             .background(.green.opacity(0.2))
-                            .clipShape(.rect(cornerRadius: 30))
+                            .clipShape(.rect(cornerRadius: 10))
                     }
                     
                     
@@ -72,7 +72,7 @@ struct LoginView: View {
                         .frame(height: 20)
                         .padding()
                         .background(.green.opacity(0.2))
-                        .clipShape(.rect(cornerRadius: 30))
+                        .clipShape(.rect(cornerRadius: 10))
                         .tint(.gray)
                     
                     
@@ -104,7 +104,7 @@ struct LoginView: View {
                         .padding(12)
                         .frame(maxWidth: .infinity)
                         .background(.green)
-                        .clipShape(.rect(cornerRadius: 40))
+                        .clipShape(.rect(cornerRadius: 10))
                         .padding()
                         .foregroundStyle(.white)
                         
@@ -132,7 +132,7 @@ struct LoginView: View {
                         .padding(12)
                         .frame(maxWidth: .infinity)
                         .background(.green)
-                        .clipShape(.rect(cornerRadius: 40))
+                        .clipShape(.rect(cornerRadius: 10))
                         .padding()
                         .foregroundStyle(.white)
                 }.padding(.bottom,30)

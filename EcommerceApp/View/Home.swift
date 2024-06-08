@@ -15,7 +15,6 @@ struct Home: View {
     @Environment(UserViewModel.self) private var user
     
     var body: some View {
-        
         NavigationStack {
             ScrollView {
                 VStack {
