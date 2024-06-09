@@ -103,14 +103,14 @@ struct LoginView: View {
                         .font(.title2)
                         .padding(12)
                         .frame(maxWidth: .infinity)
-                        .background(.green)
+                        .background(username == "" || password == "" ? .gray : .green)
                         .clipShape(.rect(cornerRadius: 10))
                         .padding()
                         .foregroundStyle(.white)
                         
                         
                         
-                    }
+                    }.disabled(username == "" || password == "")
                     
                 }
                 

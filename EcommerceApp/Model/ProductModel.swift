@@ -15,6 +15,7 @@ struct ProductModel:Codable,Identifiable,Hashable{
     var price:Int
     var size:ClosedRange<Int>
     var category:CategoryModel
+    var selectedSize:Int = 0
 }
 
 var productList:[ProductModel] = [

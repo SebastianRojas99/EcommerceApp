@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ProductDescriptionView: View {
     @State var product: ProductModel
-    @State private var selectedSize: Int? = nil
+    @State var selectedSize: Int? = 0
     @Environment(CartvViewModel.self) private var cartManager
+    @State private var isActive:Bool = false
     
     var body: some View {
         
@@ -59,11 +60,8 @@ struct ProductDescriptionView: View {
                     LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())],spacing: 20, content: {
                         ForEach(product.size, id: \.self) { size in
                             Button {
-                                if selectedSize == size {
-                                    selectedSize = nil
-                                } else {
-                                    selectedSize = size
-                                }
+                                selectedSize = size
+                                product.selectedSize = size
                             } label: {
                                 Text("\(size)")
                                     .font(.title2)
@@ -77,18 +75,22 @@ struct ProductDescriptionView: View {
                 }
                 
                 Button(action: {
-                    if selectedSize != nil {
-                        cartManager.addToCart(product: product)
-                    }
+                if let selectedSize = selectedSize, selectedSize != 0 {
+                                    cartManager.addToCart(product: product)
+                                    self.selectedSize = 0
+                                    product.selectedSize = 0
+                                    }
+                    
                 }) {
                     Text("Add To Cart")
                         .font(.headline)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(selectedSize != nil ? Color.green.opacity(0.4) : Color.gray)
+                        .background(selectedSize != 0 ? Color.green.opacity(0.4) : Color.gray)
                         .foregroundStyle(.white)
                         .cornerRadius(10)
                 }
+                .disabled(selectedSize == 0)
                 .foregroundStyle(.white)
                 .padding(.bottom)
             }
