@@ -53,7 +53,7 @@ struct ProductListView: View {
                                             Text("$\(item.price)").padding()
                                             Spacer()
                                             Button {
-                                                cartManager.addToCart(product: item)
+                                                cartManager.addToCart(product: item, selectedSize: 0)
                                                 print("Adding item to cart...")
                                             } label: {
                                                 Image(systemName: "cart")

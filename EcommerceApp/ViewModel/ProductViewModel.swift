@@ -11,12 +11,13 @@ import Observation
 
 @Observable
 class ProductViewModel{
-    
-    var draggedProduct: ProductModel?
+
     var productList:[ProductModel]
     
+
     init(productList: [ProductModel]) {
         self.productList = productList
     }
+    
     
 }

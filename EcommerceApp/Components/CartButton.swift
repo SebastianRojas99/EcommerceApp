@@ -29,22 +29,6 @@ struct CartButton: View {
                         }
             }
             
-            .onDrop(of: [UTType.text], isTargeted:nil){ providers in
-                if let provider = providers.first{
-                    provider.loadObject(ofClass: NSString.self){ (object, error) in
-                        if let idString = object as? String, let uuid = UUID(uuidString: idString){
-                            if let product = productList.first(where: {$0.id == uuid}){
-                                DispatchQueue.main.async{
-                                    cartManager.addToCart(product:product)
-                                }
-                            }
-                        }
-                        
-                    }
-                    return true
-                }
-                return false
-            }
             
         }
     }
