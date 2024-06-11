@@ -22,21 +22,22 @@ struct ProductListView: View {
                         ZStack {
                             ZStack {
                                 
-                                NavigationLink{
-                                    ProductDescriptionView(product: item).navigationBarBackButtonHidden(true)
-                                        .environment(cartManager)
-                                }label: {
-                                    Image(item.image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(maxWidth: 500, maxHeight: 500)
-                                        .padding(.trailing, -65)
-                                        .clipped()
-                                }
-                                    
-                                
+                                VStack{
+                                    NavigationLink{
+                                        ProductDescriptionView(product: item).navigationBarBackButtonHidden(true)
+                                            .environment(cartManager)
+                                    }label: {
+                                        Image(item.image)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(maxWidth: 500, maxHeight: 500)
+                                            .padding(.trailing, -65)
+                                            .clipped()
+                                    }
+                                }.padding(.top,100)
                                 
                                 VStack {
+                                    Spacer()
                                     VStack(alignment: .leading) {
                                         Text("**\(item.name)**")
                                             .padding(.top, 5)
@@ -48,30 +49,8 @@ struct ProductListView: View {
                                             .clipShape(Capsule())
                                         
                                         Spacer()
-                                        
-                                        HStack {
-                                            Text("$\(item.price)").padding()
-                                            Spacer()
-                                            Button {
-                                                cartManager.addToCart(product: item)
-                                                print("Adding item to cart...")
-                                            } label: {
-                                                Image(systemName: "cart")
-                                                    .zIndex(1)
-                                            }
-                                            .imageScale(.medium)
-                                            .frame(width: 90, height: 68)
-                                            .background(Color.black)
-                                            .clipShape(Capsule())
-                                            .foregroundColor(.white)
-                                        }
-                                        .padding(.leading)
-                                        .padding()
-                                        .frame(height: 80)
-                                        .background(Color.white.opacity(0.7))
-                                        .clipShape(RoundedRectangle(cornerRadius: 35))
                                     }
-                                }
+                                }.padding(.bottom,50)
                             }
                             .font(.system(size: 30))
                             .padding(.horizontal, 12)

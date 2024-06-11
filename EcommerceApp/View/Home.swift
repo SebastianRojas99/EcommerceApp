@@ -86,9 +86,9 @@ struct Home: View {
                         }
                         Spacer()
 
-                        ProductListView(selectedCategory: $selectedCategory)
-                            .environment(cartManager)
-                            .padding(.top, 40)
+                        //ProductListView(selectedCategory: $selectedCategory)
+                          //  .environment(cartManager)
+                            //.padding(.top, 40)
                     }
                 }
             }
