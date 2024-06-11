@@ -32,7 +32,7 @@ struct CartView: View {
                         ContentUnavailableView("Carrito vacio...", systemImage: "cart.fill.badge.questionmark")
                     }else{
                         VStack(spacing:20){
-                            ForEach(cartManager.products,id:\.id){item in
+                            ForEach(cartManager.products,id:\.self){item in
                                 
                                 
                                 CartToCard(product: item)

@@ -11,7 +11,7 @@ import Observation
 
 @Observable
 class ProductViewModel{
-
+    
     var productList:[ProductModel]
     
 
@@ -19,5 +19,12 @@ class ProductViewModel{
         self.productList = productList
     }
     
+    func changeSize(product:UUID,size:Int){
+        if let index = productList.firstIndex(where: { $0.id == product }) {
+            productList[index].selectedSize = size
+        }
+    }
+    
     
 }
+

@@ -11,7 +11,7 @@ struct ProductDescriptionView: View {
     @State var product: ProductModel
     @Environment(CartvViewModel.self) private var cartManager
     @State private var isActive: Bool = false
-    
+    @State  var selectedSize:Int = 0
     
     var body: some View {
          
@@ -55,13 +55,15 @@ struct ProductDescriptionView: View {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                         ForEach(product.size, id: \.self) { size in
                             Button {
+                                selectedSize = size
                                 product.selectedSize = size
+                                print(selectedSize)
                             } label: {
                                 Text("\(size)")
                                     .font(.title2)
                                     .foregroundStyle(.black)
                                     .padding(.all)
-                                    .background(product.selectedSize == size ? product.category.color.opacity(0.7) : Color.green.opacity(0.4))
+                                    .background(selectedSize == size ? product.category.color.opacity(0.7) : Color.green.opacity(0.4))
                                     .clipShape(Capsule())
                             }
                         }
@@ -69,8 +71,10 @@ struct ProductDescriptionView: View {
                 }
                 
                 Button(action: {
-                    
+                    product.selectedSize = selectedSize
+                    cartManager.changeSize(product: product, size: selectedSize)
                     cartManager.addToCart(product: product)
+                    print(product.selectedSize)
                 }) {
                     Text("Add To Cart")
                         .font(.headline)
@@ -80,7 +84,7 @@ struct ProductDescriptionView: View {
                         .foregroundStyle(.white)
                         .cornerRadius(10)
                 }
-                .disabled(product.selectedSize == 0)
+                .disabled(selectedSize == 0)
                 .foregroundStyle(.white)
                 .padding(.bottom)
             }

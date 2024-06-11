@@ -20,6 +20,11 @@ class CartvViewModel{
         products.append(product)
         total += product.price
     }
+    func changeSize(product: ProductModel, size: Int) {
+        if let index = productList.firstIndex(where: { $0.id == product.id }) {
+                productList[index].selectedSize = size
+            }
+        }
     
     func removeToCart(product: ProductModel) {
         if let index = products.firstIndex(where: { $0.id == product.id }) {
