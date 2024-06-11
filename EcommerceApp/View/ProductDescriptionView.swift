@@ -55,9 +55,10 @@ struct ProductDescriptionView: View {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                         ForEach(product.size, id: \.self) { size in
                             Button {
+                                
                                 selectedSize = size
                                 product.selectedSize = size
-                                print(selectedSize)
+                                
                             } label: {
                                 Text("\(size)")
                                     .font(.title2)
@@ -74,13 +75,13 @@ struct ProductDescriptionView: View {
                     product.selectedSize = selectedSize
                     cartManager.changeSize(product: product, size: selectedSize)
                     cartManager.addToCart(product: product)
-                    print(product.selectedSize)
+                    selectedSize = 0
                 }) {
                     Text("Add To Cart")
                         .font(.headline)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(product.selectedSize != 0 ? Color.green.opacity(0.7) : Color.gray)
+                        .background(selectedSize != 0 ? Color.green.opacity(0.7) : Color.gray)
                         .foregroundStyle(.white)
                         .cornerRadius(10)
                 }

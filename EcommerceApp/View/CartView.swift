@@ -34,7 +34,6 @@ struct CartView: View {
                         VStack(spacing:20){
                             ForEach(cartManager.products,id:\.self){item in
                                 
-                                
                                 CartToCard(product: item)
                                 
                                 Button(role:.destructive){

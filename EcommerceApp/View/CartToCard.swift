@@ -24,8 +24,7 @@ struct CartToCard: View {
                     .font(.headline)
                 Text("\(product.category.title)")
                     .font(.callout)
-                
-                Text("\(product.selectedSize)")
+                Text("Size: \(product.selectedSize)").font(.caption).foregroundStyle(.gray)
                 
             })
             Spacer()

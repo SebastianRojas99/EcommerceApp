@@ -34,6 +34,4 @@ struct CartButton: View {
     }
 }
 
-#Preview {
-    CartButton()
-}
+
