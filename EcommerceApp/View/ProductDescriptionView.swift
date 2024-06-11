@@ -10,8 +10,7 @@ import SwiftUI
 struct ProductDescriptionView: View {
     @State var product: ProductModel
     @Environment(CartvViewModel.self) private var cartManager
-    @State private var isActive: Bool = false
-    @State  var selectedSize:Int = 0
+    @State var selectedSize:Int = 0
     
     var body: some View {
          

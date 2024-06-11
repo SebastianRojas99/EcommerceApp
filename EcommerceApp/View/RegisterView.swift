@@ -59,7 +59,7 @@ struct RegisterView: View {
                             .frame(height: 20)
                             .padding()
                             .background(.green.opacity(0.2))
-                            .clipShape(.rect(cornerRadius: 30))
+                            .clipShape(.rect(cornerRadius: 10))
                            
                     }.padding(.horizontal,5)
                     
@@ -73,7 +73,7 @@ struct RegisterView: View {
                             .frame(height: 20)
                             .padding()
                             .background(.green.opacity(0.2))
-                            .clipShape(.rect(cornerRadius: 30))
+                            .clipShape(.rect(cornerRadius: 10))
                            
                     }.padding(.horizontal,5)
                 }.padding(.top,20)
@@ -92,7 +92,7 @@ struct RegisterView: View {
                         .frame(height: 20)
                         .padding()
                         .background(.green.opacity(0.2))
-                        .clipShape(.rect(cornerRadius: 30))
+                        .clipShape(.rect(cornerRadius: 10))
                     
                     HStack{
                         Text("Password")
@@ -107,7 +107,7 @@ struct RegisterView: View {
                         .frame(height: 20)
                         .padding()
                         .background(.green.opacity(0.2))
-                        .clipShape(.rect(cornerRadius: 30))
+                        .clipShape(.rect(cornerRadius: 10))
                     
                     
                 }.padding().foregroundStyle(.gray)
@@ -138,7 +138,7 @@ struct RegisterView: View {
                         .padding(22)
                         .frame(maxWidth: .infinity)
                         .background(.green)
-                        .clipShape(.rect(cornerRadius: 40))
+                        .clipShape(.rect(cornerRadius: 15))
                         .padding()
                         .foregroundStyle(.white)
                         
