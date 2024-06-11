@@ -10,24 +10,21 @@ import SwiftUI
 struct ProductDescriptionView: View {
     @State var product: ProductModel
     @Environment(CartvViewModel.self) private var cartManager
-    @State private var isActive:Bool = false
-    @State private var selectSize:Int? = nil
+    @State private var isActive: Bool = false
+    
     
     var body: some View {
-        
-        ScrollView{
+         
+        ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                // Imagen del producto
-                
-                VStack{
+                VStack {
                     Image(product.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Capsule())
                         .padding(.all)
                 }
-                    
-                        
+                
                 Divider()
                 
                 HStack {
@@ -42,7 +39,6 @@ struct ProductDescriptionView: View {
                         .font(.title)
                         .foregroundStyle(.green.opacity(0.7))
                 }
-            
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Description")
@@ -55,43 +51,36 @@ struct ProductDescriptionView: View {
                 
                 Spacer()
                 
-                VStack{
-                    
-                    LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())],spacing: 20, content: {
+                VStack {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                         ForEach(product.size, id: \.self) { size in
                             Button {
-                                selectSize = size
+                                product.selectedSize = size
                             } label: {
                                 Text("\(size)")
                                     .font(.title2)
                                     .foregroundStyle(.black)
                                     .padding(.all)
-                                    .background(selectSize == size ? product.category.color.opacity(0.7) : Color.green.opacity(0.4))
+                                    .background(product.selectedSize == size ? product.category.color.opacity(0.7) : Color.green.opacity(0.4))
                                     .clipShape(Capsule())
                             }
                         }
-                    })
+                    }
                 }
                 
                 Button(action: {
-                    if let selectedSize = selectSize {
-                                            var updatedProduct = product
-                                            updatedProduct.selectedSize = selectedSize
-                        cartManager.addToCart(product: updatedProduct, selectedSize: selectSize ?? 0)
-                                            self.product = updatedProduct
-                                            self.selectSize = nil
-                                        }
                     
+                    cartManager.addToCart(product: product)
                 }) {
                     Text("Add To Cart")
                         .font(.headline)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(selectSize != nil ? Color.green.opacity(0.7) : Color.gray)
+                        .background(product.selectedSize != 0 ? Color.green.opacity(0.7) : Color.gray)
                         .foregroundStyle(.white)
                         .cornerRadius(10)
                 }
-                .disabled(selectSize == nil)
+                .disabled(product.selectedSize == 0)
                 .foregroundStyle(.white)
                 .padding(.bottom)
             }

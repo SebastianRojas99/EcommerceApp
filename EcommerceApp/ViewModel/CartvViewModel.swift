@@ -16,10 +16,8 @@ class CartvViewModel{
     private(set) var total:Int = 0
     private(set) var products:[ProductModel] = []
     
-    func addToCart(product:ProductModel,selectedSize:Int){
-        var productToAdd = product
-        productToAdd.selectedSize = selectedSize
-        products.append(productToAdd)
+    func addToCart(product:ProductModel){
+        products.append(product)
         total += product.price
     }
     
