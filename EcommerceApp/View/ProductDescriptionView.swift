@@ -12,7 +12,7 @@ struct ProductDescriptionView: View {
     @State var selectedSize: Int = 0
     
     var body: some View {
-        ScrollView {
+        VStack {
             VStack(alignment: .leading,spacing:0) {
                 Image(product.image)
                     .resizable()
@@ -25,7 +25,7 @@ struct ProductDescriptionView: View {
                         Text(product.name)
                             .font(.system(size:25))
                             .bold()
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                         
                         Spacer()
                         
@@ -55,7 +55,7 @@ struct ProductDescriptionView: View {
                                     .foregroundColor(.black)
                                     .padding()
                                     .background(selectedSize == size ? product.category.color.opacity(0.7) : Color.gray.opacity(0.2))
-                                    .clipShape(Capsule())
+                                    .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
                             }
                         }
                     }
@@ -76,19 +76,21 @@ struct ProductDescriptionView: View {
                     }
                     .disabled(selectedSize == 0)
                     .padding(.all)
+                    
+                    Spacer()
                 }
                 .padding()
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 30))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 50)
-                        .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-                )
+                .background(RoundedRectangle(cornerRadius: 30).fill(Color.white).shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 5))
+                .padding(.top,25)
             }
-            //.padding() // Mover el padding aquí
+            .padding(0)
+            .frame(maxHeight: .infinity)
+            .frame(maxWidth: .infinity)
         }
-        .background(Color.gray.opacity(0.1).ignoresSafeArea()) // Extiende el fondo blanco a toda la pantalla
-        .navigationBarItems(leading: DismissButton().zIndex(1).foregroundColor(.black)).background(Color.gray.opacity(0.1).ignoresSafeArea())
+        .background(Color.gray.opacity(0.4).ignoresSafeArea())
+        .navigationBarItems(leading: DismissButton().zIndex(1).foregroundColor(.black)).background(Color.gray.opacity(0.4).ignoresSafeArea())
         .navigationBarBackButtonHidden(true)
+        
+        
     }
 }
