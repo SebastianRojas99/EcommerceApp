@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UniformTypeIdentifiers
 
 
 struct CardSmallProduct: View {
@@ -22,7 +21,7 @@ struct CardSmallProduct: View {
                     Text("Cart").font(.largeTitle)
                     Spacer()
                     CartButton().padding(.horizontal)
-                    HomeButton()
+                    DismissButton()
                 }
                 }
                 .padding()

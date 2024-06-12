@@ -16,71 +16,64 @@ struct ProductListView: View {
     
     var body: some View {
         let product = selectedCategory == "All" ? productList.first { $0.category.title == "Basketball" } : productList.first { $0.category.title == selectedCategory }
-        ZStack {
-            if let product = product {
+        
+        if let product = product {
+            ZStack {
                 HStack {
-                    ZStack{
-                        VStack(alignment: .leading, spacing: 10) {
+                    VStack(alignment: .leading, spacing: 15) {
+                        Text(product.name)
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                        
+                        Text(product.description)
+                            .font(.callout)
+                            .foregroundColor(.white)
+                            .lineLimit(2)
+                        
+                      
+                        NavigationLink{
+                            CardSmallProduct(selectedCategory: $selectedCategory).environment(cartManager)
+                                .navigationBarBackButtonHidden(true)
+                        }label: {
                             
-                            
-                            Text(product.name)
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                                .lineLimit(2)
-                            
-                            Text(product.description)
-                                .font(.callout)
-                                .foregroundColor(.white)
-                            
-                            Button(action: {
-                                isActive = true
-                            }) {
                                 Text("Shop now")
-                                    .font(.subheadline)
+                                    .font(.headline)
                                     .fontWeight(.semibold)
                                     .foregroundColor(.white)
-                                    .padding(.vertical, 5)
-                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 12)
+                                    .padding(.horizontal, 20)
                                     .background(.black)
-                                    .cornerRadius(5)
-                                    .lineLimit(1)
-                                    .truncationMode(.tail)
-                            }
+                                    .cornerRadius(10)                            
                         }
-                        .navigationDestination(
-                            isPresented: $isActive,
-                            destination:{
-                                CardSmallProduct(selectedCategory: $selectedCategory)
-                                    .navigationBarBackButtonHidden(true)
-                                    .environment(cartManager)
-                            })
-                        .padding()
                     }
-                    
+
+                    .padding()
                     
                     Spacer()
                     
-                    VStack {
-                        Image(product.image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 200, height: 200)
-                    }
-                }
-                .background(product.category.color)
-                .cornerRadius(10)
-                .padding(.horizontal)
-                .shadow(color: .gray, radius: 5, x: 0, y: 5)
-                .overlay(
-                    Image(product.logo)
+                    Image(product.image)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50, height: 50)
-                        .padding(12),
-                    alignment: .topTrailing
-                )
+                        .frame(width: 200, height: 200)
+                }
+                
+                VStack {
+                    HStack {
+                        Spacer()
+                        Image(product.logo)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 45, height: 45)
+                            .padding(12)
+                    }
+                    Spacer()
+                }
             }
+            .background(product.category.color)
+            .cornerRadius(15)
+            .padding(.horizontal)
+            .shadow(color: .gray, radius: 5, x: 0, y: 5)
         }
     }
 }

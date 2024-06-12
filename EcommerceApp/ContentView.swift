@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var cartManager = CartvViewModel()
+    @State private var cartManager = CartvViewModel()
     
     var body: some View {
         NavigationStack{
@@ -52,7 +52,7 @@ struct ContentView: View {
                          
                         
                     }
-                }
+                }.padding(5)
                 
                 
             }
@@ -60,6 +60,3 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView().environment(CartvViewModel())
-}

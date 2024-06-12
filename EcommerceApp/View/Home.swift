@@ -22,7 +22,7 @@ struct Home: View {
                     VStack {
                         HStack {
                             Text("**Sneaker Hub** Place 👟")
-                                .font(.system(size: 32))
+                                .font(.system(size: 31))
                                 .padding(.horizontal)
                             Spacer()
 
@@ -37,11 +37,7 @@ struct Home: View {
                                     .clipShape(Capsule())
                                     .shadow(radius: 5)
                                     
-                                Spacer()
                                 
-                                
-                                CartButton()
-
                                 NavigationLink {
                                     LoginView().navigationBarBackButtonHidden(true).onAppear{
                                         cartManager.clearAllCart()
@@ -59,7 +55,7 @@ struct Home: View {
                                 }
                                 
                                 
-                            }
+                            }.padding(.horizontal)
                         }
                         
 

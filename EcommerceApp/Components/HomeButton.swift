@@ -12,9 +12,10 @@ struct HomeButton: View {
     var body: some View {
         VStack{
             NavigationLink{
-                Home()
+                ContentView()
                     .environment(cartManager)
                     .navigationBarBackButtonHidden(true)
+                    
             }label: {
                 Image(systemName: "arrow.left")
                     .imageScale(.large)
