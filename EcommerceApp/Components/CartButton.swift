@@ -22,14 +22,13 @@ struct CartButton: View {
                         .font(.system(size: 25))
                         .padding(.horizontal)
                         .frame(width: 45, height: 80)
+                        .foregroundStyle(.black)
                         .overlay{
                             CounterButton(value: $cartInProduct, foreground: .white, background: .green)
                         }.onChange(of: cartManager.products){
                             cartInProduct = cartManager.products.count
                         }
             }
-            
-            
         }
     }
 }

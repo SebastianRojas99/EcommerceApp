@@ -22,8 +22,8 @@ struct CardSmallProduct: View {
                     Text("Cart").font(.largeTitle)
                     Spacer()
                     CartButton().padding(.horizontal)
-                    DismissButton()
-                    }
+                    HomeButton()
+                }
                 }
                 .padding()
                 .background(.white)
@@ -70,11 +70,6 @@ struct CardSmallProduct: View {
                                                 
                                                 Spacer()
                                                 
-                                                
-                                                
-
-                                            
-                                            
                                         }.frame(width: 180, height: 220).foregroundStyle(.black)
                                     
                                         
@@ -86,14 +81,7 @@ struct CardSmallProduct: View {
                                         .background(item.category.color.opacity(0.2))
                                         .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                                         .clipped()
-                                        .onDrag {
-                                            self.product = item
-                                            return NSItemProvider(object: item.id.uuidString as NSString)
-                                        }
-                                    
-                                    
-                                    
-                                
+                            
                         }
 
                     }

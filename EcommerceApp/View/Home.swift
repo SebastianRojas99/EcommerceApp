@@ -53,6 +53,7 @@ struct Home: View {
                                             .font(.system(size: 25))
                                             .padding()
                                             .frame(width: 45, height: 80)
+                                            .foregroundStyle(.black)
                                     }
                                     .overlay(RoundedRectangle(cornerRadius: 120).stroke(Color.green, lineWidth: 270).opacity(0.3))
                                 }
