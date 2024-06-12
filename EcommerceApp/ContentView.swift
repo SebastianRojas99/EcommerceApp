@@ -56,7 +56,7 @@ struct ContentView: View {
                 
                 
             }
-        }.foregroundStyle(.black)
+        }.foregroundStyle(.black).background(.white)
     }
 }
 

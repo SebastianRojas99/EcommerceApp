@@ -81,7 +81,7 @@ struct ProductDescriptionView: View {
                 }
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 30).fill(Color.white).shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 5))
-                .padding(.top,25)
+                .padding(.top,45)
             }
             .padding(0)
             .frame(maxHeight: .infinity)

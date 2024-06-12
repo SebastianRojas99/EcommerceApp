@@ -20,9 +20,9 @@ struct CardSmallProduct: View {
                 HStack{
                     Text("Cart").font(.largeTitle)
                     Spacer()
-                    CartButton().padding(.horizontal)
+                    CartButton().padding(.horizontal).background(.white)
                     DismissButton()
-                }
+                }.background(.white)
                 }
                 .padding()
                 .background(.white)
@@ -59,6 +59,9 @@ struct CardSmallProduct: View {
                                                     .font(.system(size: 16))
                                                     .padding(.top)
                                                     .font(.largeTitle)
+                                                    .frame(alignment:.leading)
+                                                    .lineLimit(1)
+                                                    
                                                 
                                                 Text(item.category.title)
                                                     .font(.callout)
@@ -66,6 +69,7 @@ struct CardSmallProduct: View {
                                                     .background(.white.opacity(0.7))
                                                     .clipShape(Capsule())
                                             }.padding(.horizontal,10)
+                                                .frame(alignment:.leading)
                                                 
                                                 Spacer()
                                                 
@@ -88,6 +92,6 @@ struct CardSmallProduct: View {
             }.background(.white)
             
 
-        }
+    }
 }
 

@@ -31,11 +31,12 @@ struct Home: View {
                                 Text("Hola \(user.getUser()?.capitalized ?? "Invitado")!")
                                     .font(.footnote)
                                     .bold()
-                                    .padding(8)
+                                    .padding(12)
                                     .background(Color.green)
                                     .foregroundStyle(.white)
                                     .clipShape(Capsule())
                                     .shadow(radius: 5)
+                                    .lineLimit(1)
                                     
                                 
                                 NavigationLink {
