@@ -60,6 +60,7 @@ struct CardSmallProduct: View {
                                                     .padding(.top)
                                                     .font(.largeTitle)
                                                     .frame(alignment:.leading)
+                                                    .foregroundStyle(.white)
                                                     .lineLimit(1)
                                                     
                                                 
@@ -81,7 +82,7 @@ struct CardSmallProduct: View {
                                         .padding(.bottom,10)
                                         .frame(width: 180, height: 220)
                                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(item.category.color, lineWidth: 0))
-                                        .background(item.category.color.opacity(0.2))
+                                        .background(selectedCategory == "All" ? .green : item.category.color)
                                         .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                                         .clipped()
                             
