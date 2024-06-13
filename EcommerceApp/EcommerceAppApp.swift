@@ -17,7 +17,6 @@ struct EcommerceAppApp: App {
                 .environment(cartManager)
                 .environment(user)
                 .background(ignoresSafeAreaEdges: .all)
-                
         }
     }
 }
