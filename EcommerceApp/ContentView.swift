@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack{
-    
+            
             VStack(alignment:.leading) {
                 Home()
                     .environment(cartManager)
@@ -49,7 +49,7 @@ struct ContentView: View {
                         .frame(height: 80)
                         .background(.black)
                         .clipShape(.rect(cornerRadius: 30))
-                         
+                        
                         
                     }
                 }.padding(5)

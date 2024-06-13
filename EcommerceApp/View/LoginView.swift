@@ -139,9 +139,9 @@ struct LoginView: View {
             }.background(Color.white).foregroundStyle(.gray)
         }
         
-        }
-    
     }
+    
+}
 
 #Preview {
     LoginView().environment(UserViewModel())
