@@ -8,7 +8,7 @@ import SwiftUI
 
 struct Home: View {
     @State private var categoryViewModel = CategoryViewModel(categoryList: categoryList)
-    @State private var selectedCategory = ""
+    @State private var selectedCategory = "All"
     @Environment(CartvViewModel.self) private var cartManager
     @State private var cartInProduct = myCart.count
     @Environment(UserViewModel.self) private var user
